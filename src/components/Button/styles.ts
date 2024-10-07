@@ -6,5 +6,6 @@ export const StyledButton = styled(MuiButton)`
    width: 100%;
    height: 100%;
    border-radius: 5px;
+   background-color: #0ACCF5;
   }
 `
