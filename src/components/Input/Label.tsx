@@ -1,4 +1,4 @@
-import label from "./Label.ts";
+import label from "./Label";
 
 interface LabelProps {
     text: string;

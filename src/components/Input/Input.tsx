@@ -2,7 +2,7 @@
 import React from 'react';
 import { TextField } from '@mui/material';
 import Label from './Label';
-import ErrorMessage from './ErrorMessage.tsx';
+import ErrorMessage from './ErrorMessage';
 
 interface InputProps {
     label: string;

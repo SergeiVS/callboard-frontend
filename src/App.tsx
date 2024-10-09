@@ -2,7 +2,7 @@
 
 import Button from "./components/Button/Button"
 
-
+import Layout from "components/Layout/Layout"
 
 function App() {
   return (
@@ -12,9 +12,11 @@ function App() {
           <Route path={PagesPaths.HOME} element={<Home />}></Route>
         </Routes>
       </Layout> */}
+      <Layout>
       <Button isDeleteButton={false}>Ok</Button>
       <Button disabled>DIs</Button>
       <Button isDeleteButton>Delete</Button>
+      </Layout>
     </>
   )
 }
