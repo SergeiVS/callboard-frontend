@@ -1,16 +1,19 @@
-import { styled } from '@mui/system';
-import { Input as MuiInput } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { TextField } from '@mui/material';
 
-export const StyledInput = styled(MuiInput)(({ theme }) => ({
-    marginBottom: theme.spacing(2),
-    padding: theme.spacing(1),
-    '& .MuiInputBase-input': {
+export const StyledInput = styled(TextField)(({ theme }) => ({
+    '& .MuiInputBase-root': {
         color: theme.palette.text.primary,
     },
-    '&:hover': {
-        borderColor: theme.palette.secondary.main,
-    },
-    '&.Mui-focused': {
-        borderColor: theme.palette.primary.main,
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: theme.palette.primary.main,
+        },
+        '&:hover fieldset': {
+            borderColor: theme.palette.secondary.main,
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: theme.palette.success.main,
+        },
     },
 }));
