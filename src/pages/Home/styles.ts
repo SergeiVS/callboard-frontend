@@ -32,3 +32,7 @@ export const AboutUsText = styled.p`
 export const Picture = styled.img `
   height: 350px;
 `
+
+export const ButtonContainer = styled.div`
+ width: 100px;
+`
