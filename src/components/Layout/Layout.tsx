@@ -1,25 +1,26 @@
 import { useNavigate } from "react-router-dom"
 
+import Home from "pages/Home/Home"
 import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, Footer} from "./styles"
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
 
 function Layout({ children }: LayoutProps) {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
   
-    const goToHomePage = () => {
-      navigate(PagesPaths.HOME)
-    }
+    // const goToHomePage = () => {
+    //   navigate(PagesPaths.HOME)
+    // }
   
     return (
       <LayoutWrapper>
         <Header>
-          <LogoDiv onClick={goToHomePage}>
+          <LogoDiv onClick={()=>{}}>
             <LogoImg src={logo}></LogoImg>
             <LogoName>Help a hand</LogoName>
           </LogoDiv>
-          <NavigationContainer>
+          {/* <NavigationContainer>
             <Link
               style={({ isActive }) => ({
                 textDecoration: isActive ? "underline" : "none",
@@ -36,9 +37,9 @@ function Layout({ children }: LayoutProps) {
             >
               Weathers
             </Link>
-          </NavigationContainer>
+          </NavigationContainer> */}
         </Header>
-        <Main>{children}</Main>
+        <Main><Home/></Main>
         <Footer>
             <p>Legal Stuff</p>
             <p>-</p>
