@@ -14,9 +14,6 @@ function App() {
           <Route path={PagesPaths.HOME} element={<Home />}></Route>
         </Routes>
       </Layout>
-      <Button isDeleteButton={false}>Ok</Button>
-      <Button disabled>DIs</Button>
-      <Button isDeleteButton>Delete</Button>
     </>
   )
 }

@@ -6,26 +6,28 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  align-items: center;
+  min-height: 500px;
+  justify-content: right;
   gap: 120px;
+  padding-left: 120px;
+  background-color: ${colors.LIGHTBLUE};
 `
 
 export const AboutUs = styled.div `
   display: flex;
   flex-direction: column;
+  width: 300px;
   height: 100%;
-  min-height: 500px;
-  max-height: fit-content;
   gap: 30px;
-  background-color: ${colors.LIGHTBLUE};
+  
 `
 export const AboutUsTitle = styled.h1`
-  font-size: 32px;
+  font-size: 42px;
   color: ${colors.GREY};
 `
 
 export const AboutUsText = styled.p`
-  font-size: 16px;
+  font-size: 22px;
   color: ${colors.GREY};
 `
 

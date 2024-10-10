@@ -1,44 +1,24 @@
-import { useNavigate } from "react-router-dom"
-
 import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, Footer} from "./styles"
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
+import Home from "pages/Home/Home"
 
 function Layout({ children }: LayoutProps) {
-    const navigate = useNavigate()
-  
-    const goToHomePage = () => {
-      navigate(PagesPaths.HOME)
-    }
+
   
     return (
       <LayoutWrapper>
         <Header>
-          <LogoDiv onClick={goToHomePage}>
+          <LogoDiv onClick={()=>{}}>
             <LogoImg src={logo}></LogoImg>
             <LogoName>Help a hand</LogoName>
           </LogoDiv>
           <NavigationContainer>
-            <Link
-              style={({ isActive }) => ({
-                textDecoration: isActive ? "underline" : "none",
-              })}
-              to={PagesPaths.HOME}
-            >
-              Home
-            </Link>
-            <Link
-              style={({ isActive }) => ({
-                textDecoration: isActive ? "underline" : "none",
-              })}
-              to={PagesPaths.VIEWPOSTS}
-            >
-              Weathers
-            </Link>
+            
           </NavigationContainer>
         </Header>
-        <Main>{children}</Main>
+        <Main><Home/></Main>
         <Footer>
             <p>Legal Stuff</p>
             <p>-</p>

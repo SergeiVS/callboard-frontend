@@ -4,25 +4,25 @@ import { NavLink, Link as SimpleLink} from "react-router-dom"
 import { colors } from "styles/colors"
 
 export const LayoutWrapper = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: ${colors.LIGHTBLUE};
+  width: 100%;
   background-attachment: fixed;
+  background-color: ${colors.BACKGROUND_BLUE};
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 `
 
 export const Header = styled.div`
   display: flex;
-  width: 100%;
-  min-height: 80px;
+  z-index: 2;
+  min-height: 130px;
   padding: 10px;
+  background-color: ${colors.LIGHTBLUE};
   gap: 10px;
-  background-color: ${colors.BACKGROUND_BLUE};
   box-shadow: 0px 25px 20px -20px rgba(0,0,0,0.45);
-  justify-content: space-between;
-  padding-left: 85px;
-  padding-right: 85px;
+  padding-left: 120px;
+  padding-right: 120px;
   align-items: center;
   `
 
@@ -31,6 +31,8 @@ export const LogoDiv = styled.div`
   flex-direction: row;
   height: 100%;
   width: fit-content;
+  gap: 10px;
+  align-items: center;
   cursor: pointer;
 `
 
@@ -64,12 +66,11 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 40px;
+  min-height: 700px;
 `
 
 export const Footer = styled.footer`
-display: flex;
-  width: 100%;
+  display: flex;
   height: 80px;
   padding-left: 40px;
   padding-right: 40px;
