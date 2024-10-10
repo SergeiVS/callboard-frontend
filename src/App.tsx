@@ -1,10 +1,13 @@
-import { Route, Routes} from "react-router-dom"
+import Button from "./components/Button/Button";
+import Input from "./components/Input/Input";
+import React, { useState } from "react";
 
-import Button from "./components/Button/Button"
-import Layout from "components/Layout/Layout"
-import Home from "pages/Home/Home"
+const App = () => {
+    const [inputValue, setInputValue] = useState<string>('');
 
-import { PagesPaths } from "components/Layout/types"
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(event.target.value);
+    };
 
 function App() {
   return (
@@ -17,5 +20,8 @@ function App() {
     </>
   )
 }
+        </>
+    );
+};
 
-export default App
+export default App;
