@@ -9,24 +9,17 @@ const App = () => {
         setInputValue(event.target.value);
     };
 
-    return (
-        <>
-            {/*<Layout>
-            <Routes>
-                <Route path={PagesPaths.HOME} element={<Home />}></Route>
-            </Routes>
-            </Layout> */}
-            <Input
-                value={inputValue}
-                onChange={handleInputChange}
-                placeholder="Введите текст"
-                label="Текстовое поле"
-                error={inputValue === '' ? 'Поле не должно быть пустым' : undefined}
-            />
-
-            <Button isDeleteButton={false}>Ok</Button>
-            <Button disabled>DIs</Button>
-            <Button isDeleteButton>Delete</Button>
+function App() {
+  return (
+    <>
+      <Layout>
+        <Routes>
+          <Route path={PagesPaths.HOME} element={<Home />}></Route>
+        </Routes>
+      </Layout>
+    </>
+  )
+}
         </>
     );
 };
