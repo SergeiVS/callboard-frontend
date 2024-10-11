@@ -7,13 +7,13 @@ import Button from "./components/Button/Button"
 import Input from "components/Input/input"
 import Home from "pages/Home/Home"
 
-const App = () => {
+// const App = () => {
   // const [inputValue, setInputValue] = useState<string>('');
 
   // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //     setInputValue(event.target.value);
   // };
-
+// }
   function App() {
     return (
       <>
@@ -22,9 +22,10 @@ const App = () => {
             <Route path={PagesPaths.HOME} element={<Home />}></Route>
           </Routes>
         </Layout>
+       <Button>Button</Button>
       </>
     )
   }
-}
+
 
 export default App
