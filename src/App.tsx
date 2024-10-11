@@ -27,10 +27,10 @@ function App() {
       <Button isDeleteButton>
         <Delete color="error"/>
       </Button>
-      <Button >
+      <Button>
         <Edit/>
       </Button>
-      <Button isRegularButton>
+      <Button isRegularButton={true}>
         SomeButton
       </Button>
     </>

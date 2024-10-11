@@ -19,6 +19,9 @@ function Button({
         variant={variant}
         onClick={onClick}
         disabled={disabled}
+        //RegularButton with variant contained, if false button variant= outlined
+        $isRegularButton={isRegularButton}
+        //if true: Button variant= outlined, border DELETE_BUTTON
         $isDeleteButton={isDeleteButton}
         classes="root"
       >
