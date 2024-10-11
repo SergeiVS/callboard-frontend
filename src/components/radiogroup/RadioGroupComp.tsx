@@ -1,4 +1,4 @@
-import { FormControl, FormControlLabel, FormLabel, RadioGroup } from "@mui/material"
+import { FormControl } from "@mui/material"
 import { RadioGroupProps } from "./types"
 import { StyledRadioGroup } from "./Styles"
 
