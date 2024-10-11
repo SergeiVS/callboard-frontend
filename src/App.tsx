@@ -8,6 +8,8 @@ import Button from "./components/Button/Button"
 import Input from "components/Input/input"
 import Home from "pages/Home/Home"
 import { colors } from "styles/colors"
+import RadioGroupComp from "components/radiogroup/RadioGroupComp"
+import { FormControlLabel, Radio } from "@mui/material"
 
 // const App = () => {
 
@@ -25,15 +27,32 @@ function App() {
           <Route path={PagesPaths.HOME} element={<Home />}></Route>
         </Routes>
       </Layout>
+      <RadioGroupComp
+        row={true}
+        name="subject-choice"
+        onCange={() => {}}
+        defaultValue="NEED HELP"
+      >
+        <FormControlLabel
+          value={"NEED HELP"}
+          control={<Radio />}
+          label="Need Help"
+          labelPlacement="end"
+        />
+        <FormControlLabel
+          value={"OFFER HELP"}
+          control={<Radio />}
+          label="Offer Help"
+          labelPlacement="end"
+        />
+      </RadioGroupComp>
       <Button isDeleteButton>
-        <Delete color="error"/>
+        <Delete color="error" />
       </Button>
       <Button>
-        <Edit/>
+        <Edit />
       </Button>
-      <Button isRegularButton={true}>
-        SomeButton
-      </Button>
+      <Button isRegularButton={true}>SomeButton</Button>
     </>
   )
 }
