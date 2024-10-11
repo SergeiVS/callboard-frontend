@@ -14,9 +14,9 @@ function Layout({ children }: LayoutProps) {
             <LogoImg src={logo}></LogoImg>
             <LogoName>Help a hand</LogoName>
           </LogoDiv>
-          <NavigationContainer>
+          {/* <NavigationContainer>
             
-          </NavigationContainer>
+          </NavigationContainer> */}
         </Header>
         <Main><Home/></Main>
         <Footer>

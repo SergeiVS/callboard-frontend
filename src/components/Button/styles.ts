@@ -4,18 +4,30 @@ import { colors } from "../../styles/colors"
 
 interface StyledButtonProps {
   $isDeleteButton?: boolean | undefined
+  $isRegularButton?: boolean | undefined
 }
 
-const getButtonColor = (isDeleteButton: boolean | undefined) => {
-  return isDeleteButton ? colors.DELETE_BUTTON : colors.DEEPBLUE
+const getBorderColor = (isDeleteButton: boolean | undefined) => {
+  if (isDeleteButton) {
+    return colors.DELETE_BUTTON
+  } else {
+    return colors.DEEPBLUE
+  }
+}
+
+const getBackgroundColor = (isRegularButton: boolean | undefined) => {
+  if (isRegularButton) {
+    return colors.LIGHTBLUE
+  }
 }
 
 export const StyledButton = styled(MuiButton)<StyledButtonProps>`
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: ${({ $isDeleteButton }) => getButtonColor($isDeleteButton)};
+  background-color: ${({ $isRegularButton }) => getBackgroundColor($isRegularButton)};
+  border: 2px solid ${({ $isDeleteButton }) => getBorderColor($isDeleteButton)};
   & :disabled {
-    background-color: ${colors.DARK_GREY};
+    background-color: ${colors.DELETE_BUTTON};
   }
 `
