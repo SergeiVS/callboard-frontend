@@ -12,6 +12,7 @@ import RadioGroupComp from "components/radiogroup/RadioGroupComp"
 import { FormControlLabel, Radio } from "@mui/material"
 
 // const App = () => {
+
 // const [inputValue, setInputValue] = useState<string>('');
 
 // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,5 +56,4 @@ function App() {
     </>
   )
 }
-
 export default App
