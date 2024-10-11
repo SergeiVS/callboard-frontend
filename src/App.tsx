@@ -10,6 +10,7 @@ import Home from "pages/Home/Home"
 import { colors } from "styles/colors"
 
 // const App = () => {
+
 // const [inputValue, setInputValue] = useState<string>('');
 
 // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,5 +37,4 @@ function App() {
     </>
   )
 }
-
 export default App
