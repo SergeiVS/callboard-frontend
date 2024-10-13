@@ -24,6 +24,7 @@ export const StyledButton = styled(MuiButton)<StyledButtonProps>`
   width: 100%;
   height: 100%;
   border-radius: 5px;
+  font-size: 14px;
   background-color: ${({ $isRegularButton }) =>
     getBackgroundColor($isRegularButton)};
   border: 2px solid ${({ $isDeleteButton }) => getBorderColor($isDeleteButton)};
