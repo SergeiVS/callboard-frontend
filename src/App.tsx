@@ -10,6 +10,7 @@ import Home from "pages/Home/Home"
 import { colors } from "styles/colors"
 import RadioGroupComp from "components/radiogroup/RadioGroupComp"
 import { FormControlLabel, Radio } from "@mui/material"
+import RadioButton from "components/radioButton/RadioButton"
 
 // const App = () => {
 
@@ -33,18 +34,9 @@ function App() {
         onCange={() => {}}
         defaultValue="NEED HELP"
       >
-        <FormControlLabel
-          value={"NEED HELP"}
-          control={<Radio />}
-          label="Need Help"
-          labelPlacement="end"
-        />
-        <FormControlLabel
-          value={"OFFER HELP"}
-          control={<Radio />}
-          label="Offer Help"
-          labelPlacement="end"
-        />
+        <RadioButton value="NEED HELP" lable="Need Help"/>
+        
+        <RadioButton value="OFFER HELP" lable="Offer Help"/>
       </RadioGroupComp>
       <Button isDeleteButton>
         <Delete color="error" />
