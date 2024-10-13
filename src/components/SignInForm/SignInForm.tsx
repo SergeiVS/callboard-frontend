@@ -9,8 +9,8 @@ function SignInForm({ onSubmit }: SignInFormProps) {
     <>
       <StyledSignInForm onSubmit={onSubmit}>
         <StyledLable>Sign in</StyledLable>
-        <Input placeholder="Email" value="Email" onChange={() => {}} />
-        <Input placeholder="Password" value="Password" onChange={() => {}} />
+        <Input placeholder="Email" onChange={() => {}} />
+        <Input placeholder="Password" onChange={() => {}} />
         <ButtonWraper>
           <Button isRegularButton>Sign in</Button>
         </ButtonWraper>
