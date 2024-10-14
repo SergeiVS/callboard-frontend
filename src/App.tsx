@@ -6,9 +6,17 @@ import { PagesPaths } from "components/Layout/types"
 import Button from "./components/Button/Button"
 import Input from "components/Input/input"
 import Home from "pages/Home/Home"
+<<<<<<< HEAD
 import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 
+=======
+import { colors } from "styles/colors"
+import RadioGroupComp from "components/radioGroup/RadioGroupComp"
+import { FormControlLabel, Radio } from "@mui/material"
+import RadioButton from "components/radioButton/RadioButton"
+import SignInForm from "components/SignInForm/SignInForm"
+>>>>>>> 550358e460dd4bacdfdac17a599abcb505793706
 
 // const App = () => {
 
