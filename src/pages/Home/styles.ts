@@ -4,22 +4,24 @@ import { colors } from "styles/colors"
 
 export const PageWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  flex: 1;
   min-height: 500px;
-  justify-content: right;
-  gap: 120px;
-  padding-left: 120px;
-  background-color: ${colors.LIGHTBLUE};
+  margin-top: -450px;;
+  justify-content: left;
+  padding-left: 130px;
 `
+
+export const ColoredContainer = styled.div`
+ height: 500px;
+ background-color: ${colors.LIGHTBLUE};
+`
+
 
 export const AboutUs = styled.div `
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 100%;
+  height: 500px;
   gap: 30px;
-  
+  padding-top: 30px;
 `
 export const AboutUsTitle = styled.h1`
   font-size: 42px;
@@ -32,7 +34,8 @@ export const AboutUsText = styled.p`
 `
 
 export const Picture = styled.img `
-  height: 350px;
+  width: 40%;
+  padding-left: 200px;
 `
 
 export const ButtonContainer = styled.div`
