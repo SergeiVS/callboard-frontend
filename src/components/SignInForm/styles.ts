@@ -1,19 +1,22 @@
-import { Container, FormControl, FormLabel } from "@mui/material"
+import { FormControl, FormLabel } from "@mui/material"
 import styled from "@emotion/styled"
 import { colors } from "styles/colors"
+import { FormsCss } from "styles/CommonCss"
 
 export const StyledSignInForm = styled(FormControl)`
-  display: flex;
+  ${FormsCss}
+  
+  /* display: flex; */
   /*
   flex-direction: column;
   justify-content: center;
   align-items: center; */
-  gap: 20px;
+  /* gap: 20px;
   padding: 20px;
   width: 540px;
   height: fit-content;
   background-color: ${colors.LIGHTBLUE};
-  border-radius: 9px;
+  border-radius: 9px; */
 `
 export const StyledLable = styled(FormLabel)``
 
