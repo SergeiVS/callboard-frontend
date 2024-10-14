@@ -8,6 +8,7 @@ export const PageWrapper = styled.div`
   margin-top: -450px;;
   justify-content: left;
   padding-left: 130px;
+  gap: 50px;
 `
 
 export const ColoredContainer = styled.div`
@@ -15,11 +16,11 @@ export const ColoredContainer = styled.div`
  background-color: ${colors.LIGHTBLUE};
 `
 
-
 export const AboutUs = styled.div `
   display: flex;
   flex-direction: column;
   height: 500px;
+  width: 40%;
   gap: 30px;
   padding-top: 30px;
 `
@@ -32,10 +33,12 @@ export const AboutUsText = styled.p`
   font-size: 22px;
   color: ${colors.GREY};
 `
+export const PictureControl = styled.div`
+  width: 800px;
+`
 
 export const Picture = styled.img `
-  width: 40%;
-  padding-left: 200px;
+  width: 100%;
 `
 
 export const ButtonContainer = styled.div`
