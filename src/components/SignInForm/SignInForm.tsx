@@ -1,8 +1,9 @@
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
 
-import { StyledLable, StyledSignInForm, ButtonWraper } from "components/SignInForm/styles"
-import {SignInFormProps}from"components/SignInForm/types"
+
+import { StyledSignInForm, StyledLable, ButtonWraper } from "components/SignInForm/styles"
+import { SignInFormProps } from "components/SignInForm/types"
 
 function SignInForm({onSubmit}:SignInFormProps) {
   return (
