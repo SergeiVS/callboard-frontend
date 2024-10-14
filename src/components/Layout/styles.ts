@@ -38,7 +38,7 @@ export const LogoDiv = styled.div`
 
 export const LogoName = styled.p`
   color: ${colors.GREY};
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
   text-decoration: none;
 `
@@ -74,11 +74,11 @@ export const Footer = styled.footer`
   height: 80px;
   padding-left: 40px;
   padding-right: 40px;
-  gap: 20px;
+  gap: 15px;
   background-color: white;
   border-top: 1px solid black;
   justify-content: space-between;
-  padding-left: 85px;
-  padding-right: 85px;
+  padding-left: 130px;
+  padding-right: 130px;
   align-items: center;
 `

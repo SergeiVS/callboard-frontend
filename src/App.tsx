@@ -1,17 +1,14 @@
 import { Route, Routes } from "react-router-dom"
 import React, { useState } from "react"
-import { Delete, Edit } from "@mui/icons-material"
 
 import Layout from "components/Layout/Layout"
 import { PagesPaths } from "components/Layout/types"
 import Button from "./components/Button/Button"
 import Input from "components/Input/input"
 import Home from "pages/Home/Home"
-import { colors } from "styles/colors"
-import RadioGroupComp from "components/radioGroup/RadioGroupComp"
-import { FormControlLabel, Radio } from "@mui/material"
-import RadioButton from "components/radioButton/RadioButton"
-import SignInForm from "components/SignInForm/SignInForm"
+import SignIn from "pages/SignIn/SignIn"
+import SignUp from "pages/SignUp/SignUp"
+
 
 // const App = () => {
 
@@ -27,9 +24,10 @@ function App() {
       <Layout>
         <Routes>
           <Route path={PagesPaths.HOME} element={<Home />}></Route>
+          <Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
+          <Route path={PagesPaths.SIGNUP} element={<SignUp />}></Route>
         </Routes>
       </Layout>
-      <SignInForm onSubmit={()=>{}}/>
       {/* <RadioGroupComp
         row={true}
         name="subject-choice"
