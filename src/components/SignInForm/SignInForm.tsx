@@ -1,8 +1,9 @@
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
 
-import { StyledLable, StyledSignInForm, ButtonWraper } from "components/SignInForm/styles"
-import {SignInFormProps}from"components/SignInForm/types"
+
+import { StyledSignInForm, StyledLable, ButtonContainer } from "components/SignInForm/styles"
+import { SignInFormProps } from "components/SignInForm/types"
 
 function SignInForm({onSubmit}:SignInFormProps) {
   return (
@@ -11,9 +12,9 @@ function SignInForm({onSubmit}:SignInFormProps) {
         <StyledLable>Sign in</StyledLable>
         <Input label="Email" onChange={() => {}} />
         <Input label="Password" onChange={() => {}} />
-        <ButtonWraper>
+        <ButtonContainer>
           <Button isRegularButton>Sign in</Button>
-        </ButtonWraper>
+        </ButtonContainer>
       </StyledSignInForm>
     </>
   )
