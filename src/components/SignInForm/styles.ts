@@ -4,20 +4,19 @@ import { colors } from "styles/colors"
 
 export const StyledSignInForm = styled(FormControl)`
   display: flex;
-  /*
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  gap: 20px;
-  padding: 20px;
+  gap: 25px;
+  padding: 30px;
   width: 540px;
   height: fit-content;
   background-color: ${colors.LIGHTBLUE};
   border-radius: 9px;
 `
-export const StyledLable = styled(FormLabel)``
+export const StyledLable = styled(FormLabel)`
+  color: ${colors.GREY};
+  font-size: 22px;
+`
 
-export const ButtonWraper = styled.div`
+export const ButtonContainer = styled.div`
   align-self: center;
   width: 100px;
 `

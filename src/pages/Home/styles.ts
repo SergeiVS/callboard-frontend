@@ -8,7 +8,7 @@ export const PageWrapper = styled.div`
   margin-top: -450px;;
   justify-content: left;
   padding-left: 130px;
-  gap: 50px;
+  gap: 100px;
 `
 
 export const ColoredContainer = styled.div`
@@ -24,8 +24,9 @@ export const AboutUs = styled.div `
   gap: 30px;
   padding-top: 30px;
 `
+
 export const AboutUsTitle = styled.h1`
-  font-size: 42px;
+  font-size: 38px;
   color: ${colors.GREY};
 `
 
@@ -33,8 +34,10 @@ export const AboutUsText = styled.p`
   font-size: 22px;
   color: ${colors.GREY};
 `
+
 export const PictureControl = styled.div`
   width: 800px;
+  padding-top: 30px;
 `
 
 export const Picture = styled.img `
