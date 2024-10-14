@@ -11,7 +11,7 @@ import { colors } from "styles/colors"
 import RadioGroupComp from "components/radioGroup/RadioGroupComp"
 import { FormControlLabel, Radio } from "@mui/material"
 import RadioButton from "components/radioButton/RadioButton"
-import SignInForm from "components/signInForm/SignInForm"
+import SignInForm from "components/SignInForm/SignInForm"
 
 // const App = () => {
 
