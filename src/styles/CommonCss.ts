@@ -13,4 +13,5 @@ export const FormsCss = css`
   height: fit-content;
   background-color: ${colors.LIGHTBLUE};
   border-radius: 9px;
+  
 `
