@@ -3,14 +3,10 @@ import React, { useState } from "react"
 
 import Layout from "components/Layout/Layout"
 import { PagesPaths } from "components/Layout/types"
-import Button from "./components/Button/Button"
-import Input from "components/Input/input"
 import Home from "pages/Home/Home"
-import { colors } from "styles/colors"
-import RadioGroupComp from "components/radioGroup/RadioGroupComp"
-import { FormControlLabel, Radio } from "@mui/material"
-import RadioButton from "components/radioButton/RadioButton"
-import SignInForm from "components/signInForm/SignInForm"
+import SignIn from "pages/SignIn/SignIn"
+import SignUp from "pages/SignUp/SignUp"
+import CreatePost from "pages/CreatePost/CreatePost"
 
 // const App = () => {
 
@@ -28,9 +24,9 @@ function App() {
           <Route path={PagesPaths.HOME} element={<Home />}></Route>
           <Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
           <Route path={PagesPaths.SIGNUP} element={<SignUp />}></Route>
+          <Route path={PagesPaths.CREATEPOST} element={<CreatePost />}></Route>
         </Routes>
       </Layout>
-      <SignInForm onSubmit={()=>{}}/>
       {/* <RadioGroupComp
         row={true}
         name="subject-choice"
