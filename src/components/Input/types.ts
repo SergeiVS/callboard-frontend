@@ -6,4 +6,8 @@ export interface InputProps {
     error?: string;
     placeholder?: string;
     label?: string;
+    multiline?: boolean;
+    rows?: number;
+    style?: React.CSSProperties;
+    
 }

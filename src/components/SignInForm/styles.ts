@@ -5,11 +5,13 @@ import { FormsCss } from "styles/CommonCss"
 
 export const StyledSignInForm = styled(FormControl)`
   ${FormsCss}
-
 `
-export const StyledLable = styled(FormLabel)``
+export const StyledLable = styled(FormLabel)`
+  color: ${colors.GREY};
+  font-size: 22px;
+`
 
-export const ButtonWraper = styled.div`
+export const ButtonContainer = styled.div`
   align-self: center;
   width: 100px;
 `

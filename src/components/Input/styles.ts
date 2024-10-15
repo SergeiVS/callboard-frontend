@@ -4,10 +4,12 @@ import { TextField } from '@mui/material';
 export const StyledInput = styled(TextField)`
 border-radius: 9px;
 background-color: white;
-<<<<<<< HEAD
-=======
-
->>>>>>> 6774de116a6f8c26710c488884b7d3d2ebc597dd
+`
+export const StyledInput2 = styled(TextField)`
+border-radius: 9px;
+  height: 150px;
+  background-color: white;
+  
 `
 
 // (({ theme }) => ({
