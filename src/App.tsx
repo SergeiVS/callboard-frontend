@@ -7,10 +7,12 @@ import Button from "./components/Button/Button"
 import Input from "components/Input/input"
 import Home from "pages/Home/Home"
 import { colors } from "styles/colors"
-import RadioGroupComp from "components/radioGroup/RadioGroupComp"
+//import RadioGroupComp from "components/radioGroup/RadioGroupComp"
 import { FormControlLabel, Radio } from "@mui/material"
-import RadioButton from "components/radioButton/RadioButton"
-import SignInForm from "components/signInForm/SignInForm"
+//import RadioButton from "components/radioButton/RadioButton"
+import SignInForm from "components/SignInForm/SignInForm"
+import CreatePostCard from "components/CreatePostCard/CreatePostCard"
+
 
 // const App = () => {
 
@@ -31,6 +33,7 @@ function App() {
         </Routes>
       </Layout>
       <SignInForm onSubmit={()=>{}}/>
+      <CreatePostCard onSubmit={()=>{}}/>
       {/* <RadioGroupComp
         row={true}
         name="subject-choice"
