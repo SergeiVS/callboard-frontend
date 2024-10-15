@@ -5,11 +5,17 @@ import { FormsCss } from "styles/CommonCss"
 
 
 export const StyledPostCard = styled(FormControl)`
-
-  ${FormsCss}
-  
+ display: flex;
+  gap: 25px;
+  padding: 30px;
+  width: 540px;
+  height: fit-content;
+  background-color: ${colors.LIGHTBLUE};
+  border-radius: 9px;
 `
 export const StyledLable = styled(FormLabel)`
+ color: ${colors.GREY};
+ font-size: 22px;
 
 `
 
