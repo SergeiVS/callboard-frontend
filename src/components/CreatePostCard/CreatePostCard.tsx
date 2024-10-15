@@ -4,11 +4,19 @@ import {
   StyledLable,
   StyledPostCard,
   ButtonWraper,
+<<<<<<< HEAD
+} from "./styles"
+import { SignInPostProps } from "./types"
+import RadioButton from "components/radioButton/RadioButton"
+import RadioGroupComp from "components/radioGroup/RadioGroupComp"
+import { StyledInput2 } from "components/Input/styles"
+=======
 } from "components/CreatePostCard/styles"
 import { SignInPostProps } from "components/CreatePostCard/types"
 import RadioButton from "components/RadioButton/RadioButton"
 import RadioGroupComp from "components/radiogroup/RadioGroupComp"
 import { StyledInputDescription } from "components/Input/styles"
+>>>>>>> a69cf60cdbe80656c4922626f4a0233dcb779bb2
 import { useState } from "react";
 
 function CreatePostCard({ onSubmit }: SignInPostProps) {
@@ -81,7 +89,7 @@ function CreatePostCard({ onSubmit }: SignInPostProps) {
         )} 
 
         <ButtonWraper>
-          <Button isRegularButton>Sign in</Button>
+          <Button isRegularButton>Send</Button>
         </ButtonWraper>
       </StyledPostCard>
     </>
