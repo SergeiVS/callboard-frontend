@@ -1,9 +1,10 @@
 import { PageWrapper } from "./styles"
+import Account from "components/Account/Account"
 
 function MyAccount () {
     return (
         <>
-        <PageWrapper></PageWrapper>
+        <PageWrapper><Account onSubmit={() => {}}/></PageWrapper>
         </>
     )
 }

@@ -9,5 +9,5 @@ export interface InputProps {
     multiline?: boolean;
     rows?: number;
     style?: React.CSSProperties;
-    
+    disabled?: boolean;
 }

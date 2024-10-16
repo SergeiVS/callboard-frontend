@@ -2,7 +2,7 @@ import React from 'react';
 import { InputProps } from './types';
 import { StyledInput, StyledInput2 } from './styles';
 
-const Input = ({ value, onChange, error, placeholder, label }: InputProps) => {
+const Input = ({ value, onChange, error, placeholder, label}: InputProps) => {
     return (
         <StyledInput
             value={value}
@@ -12,7 +12,6 @@ const Input = ({ value, onChange, error, placeholder, label }: InputProps) => {
             error={!!error}
             helperText={error}
             fullWidth
-        
         />
         
            

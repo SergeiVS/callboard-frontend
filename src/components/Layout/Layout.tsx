@@ -6,6 +6,7 @@ import Home from "pages/Home/Home"
 import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
+import MyAccount from "pages/MyAccount/MyAccount"
 
 function Layout({ children }: LayoutProps) {
 
@@ -21,7 +22,7 @@ function Layout({ children }: LayoutProps) {
             
           </NavigationContainer> */}
         </Header>
-        <Main><CreatePost/></Main>
+        <Main><MyAccount/></Main>
         <Footer>
             <p>Legal Stuff</p>
             <p>-</p>
