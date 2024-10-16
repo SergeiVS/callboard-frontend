@@ -18,12 +18,12 @@ export const signInFormSlice = createAppSlice({
 
   reducers: create => ({
     login: create.asyncThunk(
-      async (action: PayloadAction<LogIn>) => {
+      async (login: LogIn) => {
         let response = await axios.post(
-          `${RequestUrl}/api/auth`,
+          `/api/auth`,
           {
-            email: action.payload.email,
-            password: action.payload.password,
+            email: login.email,
+            password: login.password,
           },
           {
             headers: {
@@ -41,6 +41,7 @@ export const signInFormSlice = createAppSlice({
         },
         fulfilled: (state: SignInState, action) => {
           state.token = action.payload.data.token
+          console.log(state.token)
           state.isPending = false
           state.isLoggedOn = true
         },

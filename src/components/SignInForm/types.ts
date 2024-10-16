@@ -1,5 +1,7 @@
+import { FormEvent, FormEventHandler } from "react"
+
 export interface SignInFormProps {
-  onSubmit: () => void
+  onSubmit:  (event:FormEventHandler<HTMLFormElement>| undefined)=> void
 }
 
 export interface LogIn {
