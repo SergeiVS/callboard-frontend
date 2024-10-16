@@ -22,9 +22,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path={PagesPaths.HOME} element={<Home />}></Route>
-          <Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
+          {/*<Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
           <Route path={PagesPaths.SIGNUP} element={<SignUp />}></Route>
-          <Route path={PagesPaths.CREATEPOST} element={<CreatePost />}></Route>
+          <Route path={PagesPaths.CREATEPOST} element={<CreatePost />}></Route>*/}
         </Routes>
       </Layout>
       {/* <RadioGroupComp

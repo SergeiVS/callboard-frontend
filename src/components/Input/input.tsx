@@ -1,10 +1,11 @@
 import React from 'react';
 import { InputProps } from './types';
-import { StyledInput, StyledInput2 } from './styles';
+import { StyledInput} from './styles';
 
-const Input = ({ value, onChange, error, placeholder, label}: InputProps) => {
+const Input = ({ value, onChange, error, placeholder, label, disabled = false}: InputProps) => {
     return (
         <StyledInput
+            type='password'
             value={value}
             onChange={onChange}
             placeholder={placeholder}
@@ -12,6 +13,7 @@ const Input = ({ value, onChange, error, placeholder, label}: InputProps) => {
             error={!!error}
             helperText={error}
             fullWidth
+            disabled={disabled}
         />
         
            

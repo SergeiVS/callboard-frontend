@@ -10,13 +10,10 @@ function Account({ onSubmit }: SignInFormProps) {
       <StyledAccount onSubmit={onSubmit}>
         <StyledLable>Sign in</StyledLable>
         <Input placeholder="Firstname" onChange={() => {}} disabled/>
-        <Input placeholder="Lastname" onChange={() => {}} />
-        <Input placeholder="Phone number" onChange={() => {}} />
-        <Input placeholder="Email" onChange={() => {}} />
-        <Input placeholder="Password" onChange={() => {}} />
-        <ButtonContainer>
-          <Button isRegularButton>Sign Up</Button>
-        </ButtonContainer>
+        <Input placeholder="Lastname" onChange={() => {}} disabled/>
+        <Input placeholder="Phone number" onChange={() => {}} disabled/>
+        <Input placeholder="Email" onChange={() => {}} disabled/>
+        <Input placeholder="Password" onChange={() => {}} disabled/>
       </StyledAccount>
     </>
   )

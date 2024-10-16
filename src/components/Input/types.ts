@@ -9,5 +9,12 @@ export interface InputProps {
     multiline?: boolean;
     rows?: number;
     style?: React.CSSProperties;
-    disabled?: boolean;
+    type?:InputTypes;
+    disabled?: boolean
+}
+
+export enum InputTypes{
+    EMAIL="email",
+    PASSWORD="password",
+    TEXT="text"
 }
