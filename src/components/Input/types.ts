@@ -10,6 +10,7 @@ export interface InputProps {
     rows?: number;
     style?: React.CSSProperties;
     type?:InputTypes;
+    name:string
 }
 
 export enum InputTypes{
