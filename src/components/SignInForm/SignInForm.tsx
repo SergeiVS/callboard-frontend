@@ -43,13 +43,6 @@ function SignInForm() {
       {/* <StyledSignInForm > */}
       <StyledForm onSubmit={formik.handleSubmit}>
         <StyledLable>Sign in</StyledLable>
-        {/* <TextField
-          name="email"
-          label="Email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-          type={InputTypes.EMAIL}
-        /> */}
         <Input
           name="email"
           label="Email"
@@ -58,15 +51,6 @@ function SignInForm() {
           type={InputTypes.EMAIL}
           error={formik.errors["email"]}
         />
-
-        {/* <TextField
-          name="password"
-          label="Password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-          type={InputTypes.PASSWORD}
-        /> */}
-
         <Input
           name="password"
           label="Password"
