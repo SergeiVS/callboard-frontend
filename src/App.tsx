@@ -7,6 +7,9 @@ import Home from "pages/Home/Home"
 import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
+import MyAccount from "pages/MyAccount/MyAccount"
+import AllPosts from "pages/AllPosts/AllPosts"
+import MyPosts from "pages/MyPosts/MyPosts"
 
 // const App = () => {
 
@@ -22,9 +25,12 @@ function App() {
       <Layout>
         <Routes>
           <Route path={PagesPaths.HOME} element={<Home />}></Route>
-          {/*<Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
+          <Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
           <Route path={PagesPaths.SIGNUP} element={<SignUp />}></Route>
-          <Route path={PagesPaths.CREATEPOST} element={<CreatePost />}></Route>*/}
+          <Route path={PagesPaths.CREATEPOST} element={<CreatePost />}></Route>
+          <Route path={PagesPaths.MYACCOUNT} element={<MyAccount />}></Route>
+          <Route path={PagesPaths.ALLPOSTS} element={<AllPosts />}></Route>
+          <Route path={PagesPaths.MYPOSTS} element={<MyPosts />}></Route>
         </Routes>
       </Layout>
       {/* <RadioGroupComp

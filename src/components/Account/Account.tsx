@@ -4,16 +4,16 @@ import Button from "components/Button/Button"
 import { StyledAccount, StyledLable, ButtonContainer } from "./styles" 
 import { SignInFormProps } from "components/SignInForm/types"
 
-function Account({ onSubmit }: SignInFormProps) {
+function Account() {
   return (
     <>
-      <StyledAccount onSubmit={onSubmit}>
+      <StyledAccount >
         <StyledLable>Sign in</StyledLable>
-        <Input placeholder="Firstname" onChange={() => {}} disabled/>
-        <Input placeholder="Lastname" onChange={() => {}} disabled/>
-        <Input placeholder="Phone number" onChange={() => {}} disabled/>
-        <Input placeholder="Email" onChange={() => {}} disabled/>
-        <Input placeholder="Password" onChange={() => {}} disabled/>
+        <Input name="firstname" placeholder="Firstname" onChange={() => {}} disabled/>
+        <Input name="lastname" placeholder="Lastname" onChange={() => {}} disabled/>
+        <Input name="phone-number" placeholder="Phone number" onChange={() => {}} disabled/>
+        <Input name="email" placeholder="Email" onChange={() => {}} disabled/>
+        <Input name="password" placeholder="Password" onChange={() => {}} disabled/>
       </StyledAccount>
     </>
   )

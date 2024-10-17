@@ -6,6 +6,10 @@ import { FormsCss } from "styles/CommonCss"
 export const StyledSignInForm = styled(FormControl)`
   ${FormsCss}
 `
+export const StyledForm = styled.form`
+  ${FormsCss}
+`
+
 export const StyledLable = styled(FormLabel)`
   color: ${colors.GREY};
   font-size: 22px;

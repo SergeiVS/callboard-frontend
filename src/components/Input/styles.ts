@@ -1,15 +1,14 @@
-import { styled } from '@mui/material/styles';
-import { TextField } from '@mui/material';
+import { styled } from "@mui/material/styles"
+import { TextField } from "@mui/material"
 
 export const StyledInput = styled(TextField)`
-border-radius: 9px;
-background-color: white;
+  border-radius: 9px;
+  background-color: white;
 `
-export const StyledInputDescription= styled(TextField)`
-border-radius: 9px;
+export const StyledInputDescription = styled(TextField)`
+  border-radius: 9px;
   height: 150px;
   background-color: white;
-  
 `
 
 
@@ -28,5 +27,5 @@ border-radius: 9px;
 //             borderColor: theme.palette.success.main,
 //         },
 //     },
-    
+
 // }));

@@ -45,7 +45,7 @@ function CreatePostCard({ onSubmit }: SignInPostProps) {
           <RadioButton value="OFFER HELP" lable="Offer Help" />
         </RadioGroupComp>
 
-        <Input label="Headline" onChange={() => {}} />
+        <Input name="hedline" label="Headline" onChange={() => {}} />
         <StyledInputDescription
           label="Description..."
           onChange={() => {}}
@@ -60,6 +60,7 @@ function CreatePostCard({ onSubmit }: SignInPostProps) {
           </Button>
           <input
             id="photo-upload"
+            name="file-upload"
             type="file" 
             onChange={handleFileChange}
             style={{ display: "none" }}

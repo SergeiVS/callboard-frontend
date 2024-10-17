@@ -18,6 +18,7 @@ function Button({
       <StyledButton
         variant={variant}
         onClick={onClick}
+        type="submit"
         disabled={disabled}
         //RegularButton with variant contained, if false button variant= outlined
         $isRegularButton={isRegularButton}

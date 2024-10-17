@@ -3,10 +3,10 @@ import { colors } from "./colors";
 
 export const FormsCss = css`
  display: flex;
-  /*
+  
   flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center; 
   gap: 25px;
   padding: 30px;
   padding-bottom: 40px;

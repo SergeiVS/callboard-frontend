@@ -6,7 +6,7 @@ import Home from "pages/Home/Home"
 import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
-import MyAccount from "pages/MyAccount/MyAccount"
+import SignInForm from "components/SignInForm/SignInForm"
 
 function Layout({ children }: LayoutProps) {
 
@@ -22,7 +22,10 @@ function Layout({ children }: LayoutProps) {
             
           </NavigationContainer> */}
         </Header>
-        <Main><MyAccount/></Main>
+        <Main>
+          {/* <CreatePost/> */}
+          <SignInForm/>
+          </Main>
         <Footer>
             <p>Legal Stuff</p>
             <p>-</p>

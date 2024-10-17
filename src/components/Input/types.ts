@@ -11,6 +11,7 @@ export interface InputProps {
     style?: React.CSSProperties;
     type?:InputTypes;
     disabled?: boolean
+    name:string
 }
 
 export enum InputTypes{

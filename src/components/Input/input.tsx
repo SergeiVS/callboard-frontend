@@ -1,25 +1,29 @@
-import React from 'react';
-import { InputProps } from './types';
-import { StyledInput} from './styles';
+import React from "react"
+import { InputProps, InputTypes } from "./types"
+import { StyledInput, StyledInputDescription } from "./styles"
 
-const Input = ({ value, onChange, error, placeholder, label, disabled = false}: InputProps) => {
-    return (
-        <StyledInput
-            type='password'
-            value={value}
-            onChange={onChange}
-            placeholder={placeholder}
-            label={label}
-            error={!!error}
-            helperText={error}
-            fullWidth
-            disabled={disabled}
-        />
-        
-           
-        
-    );
+const Input = ({
+  value,
+  onChange,
+  error,
+  placeholder,
+  label,
+  name,
+  type
+}: InputProps) => {
+  return (
+    <StyledInput
+      name={name}
+      type={type}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      label={label}
+      error={!!error}
+      helperText={error}
+      fullWidth
+    />
+  )
+}
 
-};
-
-export default Input;
+export default Input
