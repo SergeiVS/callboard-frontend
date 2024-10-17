@@ -11,5 +11,5 @@ export enum PagesPaths {
   VIEWPOSTS = "/viewposts",
   MYACCOUNT = "/myaccount",
   MYPOSTS = "/myposts",
-  CREATEPOST = "/createpost"
+  CREATEPOST = "/createpost",
 }
