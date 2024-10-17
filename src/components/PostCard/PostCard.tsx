@@ -5,7 +5,6 @@ import {
   StyledDescription,
   StyledContactInfo,
   StyledPostContainer,
-  
 } from "./styles"
 
 const PostCard = (props: PostCardProps) => {
@@ -13,16 +12,20 @@ const PostCard = (props: PostCardProps) => {
 
   return (
     <StyledPostContainer>
-    <StyledContactInfo>
-      <p>{contactInfo}</p>
-    </StyledContactInfo>
-    
-    <StyledPostCard>
-      <StyledHeader>{headline}</StyledHeader>
-      <img src={image} alt="Photo" style={{ width: '100px', height: 'auto' }} />
-      <StyledDescription>{description}</StyledDescription>
-    </StyledPostCard>
-  </StyledPostContainer>
+      <StyledContactInfo>
+        <p>{contactInfo}</p>
+      </StyledContactInfo>
+
+      <StyledPostCard>
+        <StyledHeader>{headline}</StyledHeader>
+        <img
+          src={image}
+          alt="Photo"
+          style={{ width: "100px", height: "auto" }}
+        />
+        <StyledDescription>{description}</StyledDescription>
+      </StyledPostCard>
+    </StyledPostContainer>
   )
 }
 
