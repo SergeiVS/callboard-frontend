@@ -8,6 +8,7 @@ import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
 
+
 // const App = () => {
 
 // const [inputValue, setInputValue] = useState<string>('');
@@ -25,6 +26,7 @@ function App() {
           {/*<Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
           <Route path={PagesPaths.SIGNUP} element={<SignUp />}></Route>
           <Route path={PagesPaths.CREATEPOST} element={<CreatePost />}></Route>*/}
+          
         </Routes>
       </Layout>
       {/* <RadioGroupComp
