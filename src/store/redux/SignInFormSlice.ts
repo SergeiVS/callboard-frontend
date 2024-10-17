@@ -42,6 +42,11 @@ export const signInFormSlice = createAppSlice({
         fulfilled: (state: SignInState, action) => {
           state.token = action.payload.data.token
           console.log(state.token)
+
+          if (state.token !== undefined) {
+            localStorage.setItem("token", state.token)
+          }
+console.log(localStorage.getItem("token"))
           state.isPending = false
           state.isLoggedOn = true
         },
@@ -56,6 +61,7 @@ export const signInFormSlice = createAppSlice({
 
     logOut: create.reducer((state: SignInState) => {
       state = signInInitialState
+      localStorage.removeItem("token")
     }),
   }),
 })

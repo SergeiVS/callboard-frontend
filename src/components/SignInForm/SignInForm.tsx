@@ -1,22 +1,14 @@
 import * as Yup from "yup"
 import { useFormik } from "formik"
-import { Form } from "formik"
-import { FormControl, InputLabel, TextField } from "@mui/material"
 
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
 
-import {
-  StyledSignInForm,
-  StyledLable,
-  ButtonContainer,
-  StyledForm,
-} from "./styles"
-import { SignInFormProps, LogIn } from "./types"
+import { StyledLable, ButtonContainer, StyledForm } from "./styles"
+import { LogIn } from "./types"
 import { InputTypes } from "components/Input/types"
-import { useAppDispatch, useAppSelector } from "store/hooks"
-import { signInActions, signInSelectors } from "store/redux/SignInFormSlice"
-import { FormsCss } from "styles/CommonCss"
+import { useAppDispatch } from "store/hooks"
+import { signInActions } from "store/redux/SignInFormSlice"
 
 function SignInForm() {
   const dispatch = useAppDispatch()
@@ -40,16 +32,8 @@ function SignInForm() {
 
   return (
     <>
-      {/* <StyledSignInForm > */}
       <StyledForm onSubmit={formik.handleSubmit}>
         <StyledLable>Sign in</StyledLable>
-        {/* <TextField
-          name="email"
-          label="Email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-          type={InputTypes.EMAIL}
-        /> */}
         <Input
           name="email"
           label="Email"
@@ -58,15 +42,6 @@ function SignInForm() {
           type={InputTypes.EMAIL}
           error={formik.errors["email"]}
         />
-
-        {/* <TextField
-          name="password"
-          label="Password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-          type={InputTypes.PASSWORD}
-        /> */}
-
         <Input
           name="password"
           label="Password"
@@ -79,7 +54,6 @@ function SignInForm() {
           <Button isRegularButton>Sign in</Button>
         </ButtonContainer>
       </StyledForm>
-      {/* </StyledSignInForm> */}
     </>
   )
 }
