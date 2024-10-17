@@ -7,7 +7,7 @@ import { SignInFormProps } from "components/SignInForm/types"
 function SignUpForm({ onSubmit }: SignInFormProps) {
   return (
     <>
-      <StyledSignUpForm onSubmit={onSubmit}>
+      <StyledSignUpForm onSubmit={()=>{}}>
         <StyledLable>Sign in</StyledLable>
         <Input placeholder="Firstname" onChange={() => {}} />
         <Input placeholder="Lastname" onChange={() => {}} />
