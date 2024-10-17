@@ -6,8 +6,8 @@ import {
   ButtonWraper,
 } from "components/CreatePostCard/styles"
 import { SignInPostProps } from "components/CreatePostCard/types"
-import RadioButton from "components/RadioButton/RadioButton"
-import RadioGroupComp from "components/radiogroup/RadioGroupComp"
+import RadioButton from "components/radioButton/RadioButton"
+import RadioGroupComp from "components/radioGroup/RadioGroupComp"
 import { StyledInputDescription } from "components/Input/styles"
 import { useState } from "react";
 
@@ -45,7 +45,7 @@ function CreatePostCard({ onSubmit }: SignInPostProps) {
           <RadioButton value="OFFER HELP" lable="Offer Help" />
         </RadioGroupComp>
 
-        <Input label="Headline" onChange={() => {}} />
+        <Input name="hedline" label="Headline" onChange={() => {}} />
         <StyledInputDescription
           label="Description..."
           onChange={() => {}}
@@ -60,6 +60,7 @@ function CreatePostCard({ onSubmit }: SignInPostProps) {
           </Button>
           <input
             id="photo-upload"
+            name="file-upload"
             type="file" 
             onChange={handleFileChange}
             style={{ display: "none" }}
@@ -81,7 +82,7 @@ function CreatePostCard({ onSubmit }: SignInPostProps) {
         )} 
 
         <ButtonWraper>
-          <Button isRegularButton>Sign in</Button>
+          <Button isRegularButton>Send</Button>
         </ButtonWraper>
       </StyledPostCard>
     </>
