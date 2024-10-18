@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom"
 
-import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, NavigationMenuIconControl, Icon, Footer} from "./styles"
+import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, LinkControl, NavigationMenuIconControl, Icon, Footer} from "./styles"
+import myaccount from "assets/myaccount.png";
+import myposts from "assets/myposts.png";
+import newpost from "assets/createpost.png";
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
@@ -42,12 +45,44 @@ function Layout({ children }: LayoutProps) {
           >
             Sign In
           </Link>
+          <Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.SIGNUP}
+          >
+            Sign Up
+          </Link>
           </NavigationContainer>
         </Header>
         <Main>
           {children}
           <NavigationMenu>
-            Test
+            <LinkControl><Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.MYACCOUNT}
+          >
+            <NavigationMenuIconControl><Icon src={myaccount}/></NavigationMenuIconControl>
+            My Account
+          </Link></LinkControl>
+          <Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.MYPOSTS}
+          >
+            My Posts
+          </Link>
+          <Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.CREATEPOST}
+          >
+            Create Post
+          </Link>
           </NavigationMenu>
           </Main>
         <Footer>

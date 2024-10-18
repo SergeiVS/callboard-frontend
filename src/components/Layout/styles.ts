@@ -24,6 +24,7 @@ export const Header = styled.div`
   padding-left: 120px;
   padding-right: 120px;
   align-items: center;
+  justify-content: space-between;
   `
 
 export const LogoDiv = styled.div`
@@ -76,10 +77,16 @@ export const NavigationMenu = styled.nav`
   flex-direction: column;
   background-color: ${colors.DARK_GREY};
   border-radius: 8px;
-  min-width: fit-content;
+  min-width: 200px;
   max-height: fit-content;
-  padding: 10px;
+  padding: 20px;
   gap: 15px;
+`
+
+export const LinkControl = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
 `
 
 export const NavigationMenuIconControl = styled.div`
