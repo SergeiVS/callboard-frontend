@@ -1,8 +1,10 @@
 export interface PostCardProps {
   image: string;
-  headline: string;
-  contactInfo: string;
-  description: string;
- 
+  title: string;
+  price: string;
+  location: string;
+  tag: string;
+  isTop: boolean;
+  description:string;
 }
   

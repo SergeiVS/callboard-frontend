@@ -34,14 +34,7 @@ function Layout({ children }: LayoutProps) {
       <Main>
         {/* <CreatePost/> */}
         <SignInForm />
-        <div>
-          <PostCard
-            image="src/assets/logo.png"
-            headline="Amazing Post Headline"
-            contactInfo="Ivanonv Ivan, iavanivanov@gmail.com "
-            description="This is a detailed description of the post."
-          />
-        </div>
+       
       </Main>
       <Footer>
         <p>Legal Stuff</p>
