@@ -9,6 +9,7 @@ import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
 import SignInForm from "components/SignInForm/SignInForm"
+import PostCard from "components/PostCard/PostCard"
 
 function Layout({ children }: LayoutProps) {
   const navigate = useNavigate()
