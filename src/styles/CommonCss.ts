@@ -9,6 +9,7 @@ export const FormsCss = css`
   align-items: center; 
   gap: 25px;
   padding: 30px;
+  padding-bottom: 40px;
   width: 540px;
   height: fit-content;
   background-color: ${colors.LIGHTBLUE};
