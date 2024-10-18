@@ -4,7 +4,7 @@ import SignUpForm from "components/SingUpForm/SignUpForm";
 
 function SignUp () {
     return(
-        <><PageWrapper><SignUpForm onSubmit={() => {}}/></PageWrapper>
+        <><PageWrapper><SignUpForm/></PageWrapper>
         </>
     )
     

@@ -8,7 +8,7 @@ export enum PagesPaths {
   HOME = "/home",
   SIGNIN = "/signin",
   SIGNUP = "/signup",
-  VIEWPOSTS = "/viewposts",
+  ALLPOSTS = "/viewposts",
   MYACCOUNT = "/myaccount",
   MYPOSTS = "/myposts",
   CREATEPOST = "/createpost",

@@ -1,7 +1,6 @@
-import { ThemeProvider } from "@mui/material"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
-// import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 
 import App from "./App"
 import { store } from "./store/store"
@@ -13,13 +12,12 @@ if (container) {
   const root = createRoot(container)
 
   root.render(
-    <>
-      <Provider store={store}>
-        <GlobalStyles />
-
+    <Provider store={store}>
+      <GlobalStyles />
+      <BrowserRouter>
         <App />
-      </Provider>
-    </>,
+      </BrowserRouter>
+    </Provider>,
   )
 } else {
   throw new Error(
