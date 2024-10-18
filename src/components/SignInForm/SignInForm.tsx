@@ -22,11 +22,14 @@ function SignInForm() {
     initialValues: { ["email"]: "", ["password"]: "" },
     validationSchema: validationSchema,
     validateOnChange: false,
-    onSubmit: (values, helpers) => {
+    onSubmit: async (values, helpers) => {
       let login: LogIn = { email: values.email, password: values.password }
       console.log(login)
-      dispatch(signInActions.login(login))
-      helpers.resetForm()
+     const dispatchResult = await dispatch(signInActions.login(login))
+     if(signInActions.login.fulfilled.match(dispatchResult)){
+      // dispatch(signInActions.getUser())
+       helpers.resetForm()
+     }
     },
   })
 
