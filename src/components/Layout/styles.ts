@@ -64,9 +64,30 @@ export const Link = styled(NavLink)`
 
 export const Main = styled.main`
   display: flex;
-  flex-direction: column;
   flex: 1;
   min-height: 700px;
+`
+
+export const NavigationMenu = styled.nav`
+  display: flex;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 100px;
+  flex-direction: column;
+  background-color: ${colors.DARK_GREY};
+  border-radius: 8px;
+  min-width: fit-content;
+  max-height: fit-content;
+  padding: 10px;
+  gap: 15px;
+`
+
+export const NavigationMenuIconControl = styled.div`
+  width: 30px;
+`
+
+export const Icon = styled.img`
+  width: 100%;
 `
 
 export const Footer = styled.footer`

@@ -1,4 +1,4 @@
-import { PageWrapper, AboutUs, AboutUsTitle, AboutUsText, Picture, ButtonContainer, ColoredContainer, PictureControl} from "./styles";
+import { PageWrapper, AboutUs, AboutUsTitle, AboutUsText, Picture, ButtonContainer, PictureControl} from "./styles";
 
 import Button from "components/Button/Button";
 import picture from "assets/aboutusimage.jpg";
@@ -8,7 +8,6 @@ import picture from "assets/aboutusimage.jpg";
 function Home () {
    return ( 
    <>
-   <ColoredContainer></ColoredContainer>
     <PageWrapper>
         <AboutUs>  
             <AboutUsTitle>Lorem ipsum dolor sit amet.</AboutUsTitle>

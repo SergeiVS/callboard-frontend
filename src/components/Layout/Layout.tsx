@@ -1,4 +1,6 @@
-import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, Footer} from "./styles"
+import { useNavigate } from "react-router-dom"
+
+import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, NavigationMenuIconControl, Icon, Footer} from "./styles"
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
@@ -9,22 +11,43 @@ import CreatePost from "pages/CreatePost/CreatePost"
 import SignInForm from "components/SignInForm/SignInForm"
 
 function Layout({ children }: LayoutProps) {
+  const navigate = useNavigate()
 
+  const goToHomePage = () => {
+    navigate(PagesPaths.HOME)
+  }
   
     return (
       <LayoutWrapper>
         <Header>
-          <LogoDiv onClick={()=>{}}>
+          <LogoDiv onClick={goToHomePage}>
             <LogoImg src={logo}></LogoImg>
             <LogoName>Help a hand</LogoName>
           </LogoDiv>
-          {/* <NavigationContainer>
-            
-          </NavigationContainer> */}
+          <NavigationContainer>
+          <Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.ALLPOSTS}
+          >
+            All Posts
+          </Link>
+          <Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.SIGNIN}
+          >
+            Sign In
+          </Link>
+          </NavigationContainer>
         </Header>
         <Main>
-          {/* <CreatePost/> */}
-          <SignInForm/>
+          {children}
+          <NavigationMenu>
+            Test
+          </NavigationMenu>
           </Main>
         <Footer>
             <p>Legal Stuff</p>
