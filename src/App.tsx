@@ -28,6 +28,7 @@ function App() {
           {/*<Route path={PagesPaths.SIGNIN} element={<SignIn />}></Route>
           <Route path={PagesPaths.SIGNUP} element={<SignUp />}></Route>
           <Route path={PagesPaths.CREATEPOST} element={<CreatePost />}></Route>*/}
+          
         </Routes>
       </Layout>
     </>
