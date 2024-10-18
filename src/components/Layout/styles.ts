@@ -57,6 +57,8 @@ export const NavigationContainer = styled.nav`
 `
 
 export const Link = styled(NavLink)`
+  display: flex;
+  gap: 8px;
   color: ${colors.GREY};
   font-size: 20px;
   font-weight: normal;
@@ -81,12 +83,6 @@ export const NavigationMenu = styled.nav`
   max-height: fit-content;
   padding: 20px;
   gap: 15px;
-`
-
-export const LinkControl = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: fit-content;
 `
 
 export const NavigationMenuIconControl = styled.div`

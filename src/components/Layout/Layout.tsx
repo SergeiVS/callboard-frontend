@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, LinkControl, NavigationMenuIconControl, Icon, Footer} from "./styles"
+import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, NavigationMenuIconControl, Icon, Footer} from "./styles"
 import myaccount from "assets/myaccount.png";
 import myposts from "assets/myposts.png";
 import newpost from "assets/createpost.png";
@@ -58,15 +58,15 @@ function Layout({ children }: LayoutProps) {
         <Main>
           {children}
           <NavigationMenu>
-            <LinkControl><Link
+            <Link
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",
             })}
             to={PagesPaths.MYACCOUNT}
           >
             <NavigationMenuIconControl><Icon src={myaccount}/></NavigationMenuIconControl>
-            My Account
-          </Link></LinkControl>
+            <p>My Account</p>
+          </Link>
           <Link
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",
