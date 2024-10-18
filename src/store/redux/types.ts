@@ -1,8 +1,17 @@
+import axios from "axios"
+
 export interface SignInState {
-  token: string | undefined
+  user: User | undefined
   isPending: boolean
   isLoggedOn: boolean
   error: string | undefined
 }
 
-export const RequestUrl: string = "http//localhost:8080"
+export interface User {
+  id: number
+  firstName: string
+  lastName: string
+  email: string
+  phoneNumber: string
+  roles: string[]
+}
