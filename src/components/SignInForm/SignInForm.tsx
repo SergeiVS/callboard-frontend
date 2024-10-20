@@ -10,7 +10,7 @@ import { LogIn } from "./types"
 import { PagesPaths } from "components/Layout/types"
 import { InputTypes } from "components/Input/types"
 import { useAppDispatch } from "store/hooks"
-import { signInActions } from "store/redux/SignInFormSlice"
+import { signInActions } from "store/redux/signInFormSlice/SignInFormSlice"
 
 function SignInForm() {
   const dispatch = useAppDispatch()
@@ -27,7 +27,6 @@ function SignInForm() {
     validateOnChange: false,
     onSubmit: async (values, helpers) => {
       let login: LogIn = { email: values.email, password: values.password }
-      console.log(login)
       const dispatchResult = await dispatch(signInActions.login(login))
       if (signInActions.login.fulfilled.match(dispatchResult)) {
         navigate(PagesPaths.HOME)

@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { colors } from "styles/colors"
 import { FormsCss } from "styles/CommonCss"
 
-export const StyledSignUpForm = styled(FormControl)`
+export const StyledSignUpForm = styled.form`
    ${FormsCss}
 `
 export const StyledLable = styled(FormLabel)`

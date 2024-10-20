@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles"
 import { TextField } from "@mui/material"
+import { colors } from "styles/colors"
 
 export const StyledInput = styled(TextField)`
   border-radius: 9px;
@@ -10,7 +11,6 @@ export const StyledInputDescription = styled(TextField)`
   height: 150px;
   background-color: white;
 `
-
 
 // (({ theme }) => ({
 // '& .MuiInputBase-root': {

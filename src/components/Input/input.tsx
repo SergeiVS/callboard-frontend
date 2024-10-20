@@ -9,7 +9,7 @@ const Input = ({
   placeholder,
   label,
   name,
-  type
+  type = InputTypes.TEXT
 }: InputProps) => {
   return (
     <StyledInput
