@@ -74,7 +74,9 @@ export const Main = styled.main`
 
 export const NavigationMenu = styled.nav`
   display: flex;
+  position: absolute;
   margin-top: 30px;
+  right:15px;
   margin-right: 100px;
   margin-left: 100px;
   flex-direction: column;

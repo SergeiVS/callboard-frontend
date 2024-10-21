@@ -1,15 +1,38 @@
 import { useNavigate } from "react-router-dom"
 import React, { useEffect } from "react"
 
-import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, IconControl, Icon, Footer} from "./styles"
+import {
+  LayoutWrapper,
+  Header,
+  LogoDiv,
+  LogoName,
+  LogoImg,
+  NavigationContainer,
+  Link,
+  Main,
+  NavigationMenu,
+  IconControl,
+  Icon,
+  Footer,
+} from "./styles"
+
 import myaccount from "assets/myaccount.png";
 import myposts from "assets/myposts.png";
 import newpost from "assets/createpost.png";
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
+import Home from "pages/Home/Home"
+import SignIn from "pages/SignIn/SignIn"
+import SignUp from "pages/SignUp/SignUp"
+import CreatePost from "pages/CreatePost/CreatePost"
+import SignInForm from "components/SignInForm/SignInForm"
+import PostCard from "components/PostCard/PostCard"
+import Alert from "components/Alert/Alert"
+
+import { alertSelectors } from "store/redux/alertSlice/AlertSlice"
 import { useAppDispatch, useAppSelector } from "store/hooks"
-import { signInSelectors, signInActions } from "store/redux/SignInFormSlice"
+import { signInSelectors, signInActions } from "store/redux/signInFormSlice/SignInFormSlice"; 
 
 function Layout({ children }: LayoutProps) {
   const dispatch = useAppDispatch()
@@ -26,14 +49,14 @@ function Layout({ children }: LayoutProps) {
     navigate(PagesPaths.HOME)
   }
   
-    return (
-      <LayoutWrapper>
-        <Header>
-          <LogoDiv onClick={goToHomePage}>
-            <LogoImg src={logo}></LogoImg>
-            <LogoName>Help a hand</LogoName>
-          </LogoDiv>
-          <NavigationContainer>
+  return (
+    <LayoutWrapper>
+      <Header>
+        <LogoDiv onClick={goToHomePage}>
+          <LogoImg src={logo}></LogoImg>
+          <LogoName>Help a hand</LogoName>
+        </LogoDiv>
+        <NavigationContainer>
           <Link
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",
@@ -58,18 +81,20 @@ function Layout({ children }: LayoutProps) {
           >
             Sign Up
           </Link>
-          </NavigationContainer>
-        </Header>
-        <Main>
-          {children}
-          <NavigationMenu>
-            <Link
+        </NavigationContainer>
+      </Header>
+      <Main>
+        {children}
+        <NavigationMenu>
+          <Link
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",
             })}
             to={PagesPaths.MYACCOUNT}
           >
-            <IconControl><Icon src={myaccount}/></IconControl>
+            <IconControl>
+              <Icon src={myaccount} />
+            </IconControl>
             <p>My Account</p>
           </Link>
           <Link
@@ -90,22 +115,21 @@ function Layout({ children }: LayoutProps) {
             <IconControl><Icon src={newpost}/></IconControl>
             Create Post
           </Link>
-          </NavigationMenu>
-          </Main>
-        <Footer>
-            <p>Legal Stuff</p>
-            <p>-</p>
-            <p>Privacy Policy</p>
-            <p>-</p>
-            <p>Security</p>
-            <p>-</p>
-            <p>Website Accessibility</p>
-            <p>-</p>
-            <p>Manage Cookies</p>
-        </Footer>
-      </LayoutWrapper>
-    )
-  }
-  
-  export default Layout
-  
+        </NavigationMenu>
+      </Main>
+      <Footer>
+        <p>Legal Stuff</p>
+        <p>-</p>
+        <p>Privacy Policy</p>
+        <p>-</p>
+        <p>Security</p>
+        <p>-</p>
+        <p>Website Accessibility</p>
+        <p>-</p>
+        <p>Manage Cookies</p>
+      </Footer>
+    </LayoutWrapper>
+  )
+}
+
+export default Layout
