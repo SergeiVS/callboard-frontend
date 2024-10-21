@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom"
 import React, { useEffect } from "react"
 
 import {
+  StyledModal,
+  StyledAlert,
   LayoutWrapper,
   Header,
   LogoDiv,
@@ -28,11 +30,14 @@ import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
 import SignInForm from "components/SignInForm/SignInForm"
 import PostCard from "components/PostCard/PostCard"
-import Alert from "components/Alert/Alert"
 
-import { alertSelectors } from "store/redux/alertSlice/AlertSlice"
+import CloseIcon from "@mui/icons-material/Close"
+import { useEffect, useState } from "react"
+import { alertSelectors, alertActions } from "store/redux/alertSlice/AlertSlice"
 import { useAppDispatch, useAppSelector } from "store/hooks"
-import { signInSelectors, signInActions } from "store/redux/signInFormSlice/SignInFormSlice"; 
+import { IconButton } from "@mui/material"
+
+
 
 function Layout({ children }: LayoutProps) {
   const dispatch = useAppDispatch()
@@ -44,13 +49,45 @@ function Layout({ children }: LayoutProps) {
   }, [isLoggedOn])
   
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const isModalOpen = useAppSelector(alertSelectors.isOpen)
+  const severity = useAppSelector(alertSelectors.severity)
+  const message = useAppSelector(alertSelectors.cildren)
+
+  // const { open } = useAlert()
+
+  useEffect(() => {
+    if (isModalOpen) {
+      setModalOpen(true)
+    } else {
+      // dispatch(alertActions.closeAlert())
+      setModalOpen(false)
+    }
+  }, [isModalOpen])
+
+  const closeModal = () => {
+    setModalOpen(false)
+    dispatch(alertActions.closeAlert())
+  }
 
   const goToHomePage = () => {
     navigate(PagesPaths.HOME)
   }
-  
+
   return (
     <LayoutWrapper>
+      <StyledModal open={modalOpen} onClose={closeModal}>
+        <StyledAlert severity={severity}>
+          {message}
+          <IconButton onClick={closeModal}>
+            <CloseIcon />
+          </IconButton>
+        </StyledAlert>
+      </StyledModal>
+
       <Header>
         <LogoDiv onClick={goToHomePage}>
           <LogoImg src={logo}></LogoImg>
