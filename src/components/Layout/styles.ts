@@ -100,7 +100,7 @@ export const NavigationMenu = styled.nav`
   gap: 15px;
 `
 
-export const NavigationMenuIconControl = styled.div`
+export const IconControl = styled.div`
   width: 30px;
 `
 
