@@ -8,8 +8,8 @@ function Account() {
   return (
     <>
       <StyledAccount >
-        <StyledLable>Sign in</StyledLable>
-        <Input name="firstname" placeholder="Firstname" onChange={() => {}} disabled/>
+        <StyledLable>My Account</StyledLable>
+        <Input name="firstname" placeholder="Firstname" onChange={() => {}} disabled  />
         <Input name="lastname" placeholder="Lastname" onChange={() => {}} disabled/>
         <Input name="phone-number" placeholder="Phone number" onChange={() => {}} disabled/>
         <Input name="email" placeholder="Email" onChange={() => {}} disabled/>

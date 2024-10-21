@@ -1,8 +1,11 @@
 import { Route, Routes } from "react-router-dom"
+import React, { useEffect } from "react"
 
 import Layout from "components/Layout/Layout"
 import { PagesPaths } from "components/Layout/types"
 import Home from "pages/Home/Home"
+import { useAppDispatch, useAppSelector } from "store/hooks"
+import { signInSelectors, signInActions } from "store/redux/SignInFormSlice"
 import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
@@ -10,8 +13,17 @@ import MyAccount from "pages/MyAccount/MyAccount"
 import AllPosts from "pages/AllPosts/AllPosts"
 import MyPosts from "pages/MyPosts/MyPosts"
 
-
 function App() {
+  const dispatch = useAppDispatch()
+  const isLoggedOn = useAppSelector(signInSelectors.isLoggedOn)
+
+
+  useEffect(() => {
+      dispatch(signInActions.getUser())
+  }, [isLoggedOn])
+
+
+  
   return (
     <>
       <Layout>

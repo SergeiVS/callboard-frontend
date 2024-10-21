@@ -8,12 +8,12 @@ function SignUpForm() {
   return (
     <>
       <StyledSignUpForm onSubmit={()=>{}}>
-        <StyledLable>Sign in</StyledLable>
-        <Input name="firstname" placeholder="Firstname" onChange={() => {}} />
-        <Input name="lastname" placeholder="Lastname" onChange={() => {}} />
-        <Input name="phone-number" placeholder="Phone number" onChange={() => {}} />
-        <Input name="email" placeholder="Email" onChange={() => {}} />
-        <Input name="password" placeholder="Password" onChange={() => {}} />
+        <StyledLable>Sign Up</StyledLable>
+        <Input name="firstname" label="Firstname" onChange={() => {}} />
+        <Input name="lastname" label="Lastname" onChange={() => {}} />
+        <Input name="phone-number" label="Phone number" onChange={() => {}} />
+        <Input name="email" label="Email" onChange={() => {}} />
+        <Input name="password" label="Password" onChange={() => {}} />
         <ButtonContainer>
           <Button isRegularButton>Sign Up</Button>
         </ButtonContainer>

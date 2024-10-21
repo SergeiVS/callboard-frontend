@@ -1,17 +1,20 @@
 import * as Yup from "yup"
 import { useFormik } from "formik"
+import { useNavigate } from "react-router-dom"
 
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
 
 import { StyledLable, ButtonContainer, StyledForm } from "./styles"
 import { LogIn } from "./types"
+import { PagesPaths } from "components/Layout/types"
 import { InputTypes } from "components/Input/types"
 import { useAppDispatch } from "store/hooks"
 import { signInActions } from "store/redux/SignInFormSlice"
 
 function SignInForm() {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const validationSchema = Yup.object().shape({
     ["email"]: Yup.string().required("Email is missing"),
@@ -22,11 +25,14 @@ function SignInForm() {
     initialValues: { ["email"]: "", ["password"]: "" },
     validationSchema: validationSchema,
     validateOnChange: false,
-    onSubmit: (values, helpers) => {
+    onSubmit: async (values, helpers) => {
       let login: LogIn = { email: values.email, password: values.password }
       console.log(login)
-      dispatch(signInActions.login(login))
-      helpers.resetForm()
+      const dispatchResult = await dispatch(signInActions.login(login))
+      if (signInActions.login.fulfilled.match(dispatchResult)) {
+        navigate(PagesPaths.HOME)
+        helpers.resetForm()
+      }
     },
   })
 

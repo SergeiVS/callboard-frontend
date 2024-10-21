@@ -1,12 +1,13 @@
-import { PayloadAction } from "@reduxjs/toolkit"
+import { isPending, PayloadAction } from "@reduxjs/toolkit"
 import axios from "axios"
 import { createAppSlice } from "../createAppSlice"
 
-import { SignInState, RequestUrl } from "./types"
+import { SignInState } from "./types"
 import { LogIn } from "components/SignInForm/types"
+import { error } from "console"
 
 const signInInitialState: SignInState = {
-  token: undefined,
+  user: undefined,
   isPending: false,
   isLoggedOn: false,
   error: undefined,
@@ -39,31 +40,73 @@ export const signInFormSlice = createAppSlice({
           state.isLoggedOn = false
           state.error = undefined
         },
-        fulfilled: (state: SignInState, action) => {
-          state.token = action.payload.data.token
-          console.log(state.token)
 
-          if (state.token !== undefined) {
-            localStorage.setItem("token", state.token)
+        fulfilled: (state: SignInState, action) => {
+          if (action.payload.data.token !== undefined) {
+            localStorage.setItem("token", action.payload.data.token)
           }
-console.log(localStorage.getItem("token"))
+
           state.isPending = false
           state.isLoggedOn = true
         },
+
         rejected: (state: SignInState, action) => {
           state.error = action.error.message
           state.isPending = false
           state.isLoggedOn = false
-          state.token = undefined
+          localStorage.removeItem("token")
         },
       },
     ),
 
-    logOut: create.reducer((state: SignInState) => {
+    getUser: create.asyncThunk(
+      async () => {
+        let response = await axios.get("/api/auth/me", {
+          headers: {
+            "Content-Type": "application/JSON",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+        return response.data
+      },
+      {
+        pending: (state: SignInState) => {
+          state.isPending = true
+        },
+
+        fulfilled: (state: SignInState, action: any) => {
+          state.isPending = false
+          state.user = action.payload
+        },
+
+        rejected: (state, action) => {
+          state.error = action.error.message
+          state.isLoggedOn = false
+          state.isPending = false
+          state.user = undefined
+        },
+      },
+    ),
+
+    logOut: create.reducer(state => {
       state = signInInitialState
       localStorage.removeItem("token")
     }),
   }),
+  selectors: {
+    user: (state: SignInState) => {
+      return state.user
+    },
+    isPending: (state: SignInState) => {
+      return state.isPending
+    },
+    isLoggedOn: (state: SignInState) => {
+      return state.isLoggedOn
+    },
+    error: (state: SignInState) => {
+      return state.error
+    },
+  },
 })
 
 export const signInActions = signInFormSlice.actions

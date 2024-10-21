@@ -1,20 +1,25 @@
 import { useNavigate } from "react-router-dom"
+import React, { useEffect } from "react"
 
-import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, NavigationMenuIconControl, Icon, Footer} from "./styles"
+import { LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, Main, NavigationMenu, IconControl, Icon, Footer} from "./styles"
 import myaccount from "assets/myaccount.png";
 import myposts from "assets/myposts.png";
 import newpost from "assets/createpost.png";
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
-import Home from "pages/Home/Home"
-import SignIn from "pages/SignIn/SignIn"
-import SignUp from "pages/SignUp/SignUp"
-import CreatePost from "pages/CreatePost/CreatePost"
-import SignInForm from "components/SignInForm/SignInForm"
-import PostCard from "components/PostCard/PostCard"
+import { useAppDispatch, useAppSelector } from "store/hooks"
+import { signInSelectors, signInActions } from "store/redux/SignInFormSlice"
 
 function Layout({ children }: LayoutProps) {
+  const dispatch = useAppDispatch()
+  const isLoggedOn = useAppSelector(signInSelectors.isLoggedOn)
+
+
+  useEffect(() => {
+      dispatch(signInActions.getUser())
+  }, [isLoggedOn])
+  
   const navigate = useNavigate()
 
   const goToHomePage = () => {
@@ -64,7 +69,7 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.MYACCOUNT}
           >
-            <NavigationMenuIconControl><Icon src={myaccount}/></NavigationMenuIconControl>
+            <IconControl><Icon src={myaccount}/></IconControl>
             <p>My Account</p>
           </Link>
           <Link
@@ -73,6 +78,7 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.MYPOSTS}
           >
+            <IconControl><Icon src={myposts}/></IconControl>
             My Posts
           </Link>
           <Link
@@ -81,6 +87,7 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.CREATEPOST}
           >
+            <IconControl><Icon src={newpost}/></IconControl>
             Create Post
           </Link>
           </NavigationMenu>
