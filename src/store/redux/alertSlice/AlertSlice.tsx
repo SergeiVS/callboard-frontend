@@ -1,43 +1,44 @@
 import { createAppSlice } from "store/createAppSlice"
 
 import { alertSliceState } from "./types"
-import { alertProps } from "components/Alert/types"
 import { PayloadAction } from "@reduxjs/toolkit"
 
 const alertInitialState: alertSliceState = {
-  alertProps: { severity: undefined, children: "" },
   isOpen: false,
+  children: undefined,
+  severity: undefined,
 }
 
 export const alertSlice = createAppSlice({
   name: "ALERT",
   initialState: alertInitialState,
   reducers: create => ({
-    openAlert: create.reducer(
-      (state: alertSliceState, action: PayloadAction<alertProps>) => {
-        let props: alertProps = {
-          severity: action.payload.severity,
-          children: action.payload.children,
-        }
-        state.alertProps = props
-        state.isOpen = true
-        setTimeout(() => {
-          state = alertInitialState
-        }, 3000)
+    setAlertStateOpen: create.reducer(
+      (state: alertSliceState, action: PayloadAction<alertSliceState>) => {
+        state.isOpen = action.payload.isOpen
+        state.children = action.payload.children
+        state.severity = action.payload.severity
       },
     ),
+
     closeAlert: create.reducer((state: alertSliceState) => {
-      state = alertInitialState
+      state.isOpen = alertInitialState.isOpen
+      state.children = alertInitialState.children
+      state.severity = alertInitialState.severity
     }),
   }),
 
   selectors: {
-    props: (state: alertSliceState) => {
-      return state.alertProps
-    },
-
     isOpen: (state: alertSliceState) => {
       return state.isOpen
+    },
+
+    severity: (state: alertSliceState) => {
+      return state.severity
+    },
+
+    cildren: (state: alertSliceState) => {
+      return state.children
     },
   },
 })

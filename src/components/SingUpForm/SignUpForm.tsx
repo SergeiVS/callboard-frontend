@@ -11,7 +11,8 @@ import { StyledSignUpForm, StyledLable, ButtonContainer } from "./styles"
 import axios from "axios"
 import { InputTypes } from "components/Input/types"
 import { useAppDispatch } from "store/hooks"
-import { alertProps } from "components/Alert/types"
+import { alertSliceState } from "store/redux/alertSlice/types"
+import { error } from "console"
 
 function SignUpForm() {
   const navigate = useNavigate()
@@ -34,36 +35,41 @@ function SignUpForm() {
       ["email"]: "",
       ["password"]: "",
     },
+
     validationSchema: validationSchema,
     validateOnChange: false,
+
     onSubmit: async (values, helpers) => {
-      const response = await axios
-        .post("/api/auth/signing", {
+      try {
+        const response = await axios.post("/api/auth/signing", {
           firstName: values.firstName,
           lastName: values.lastName,
           phoneNumber: values.phoneNumber,
           email: values.email,
           password: values.password,
         })
-        .then(response => {
-          let message = response.data.message
-          navigate(PagesPaths.SIGNIN)
-          helpers.resetForm()
-          // let successProps: alertProps = {
-          //   severity: "success",
-          //   children: `${message}`,
-          // }
-          alert({message})
-          // dispatch(alertActions.openAlert(successProps))
-        })
-        .catch(error => {
-          alert(error)
-          // let errorProps: alertProps = {
-          //   severity: "info",
-          //   children: `${error}`,
-          // }
-          // dispatch(alertActions.openAlert(errorProps))
-        })
+
+        let alertSate: alertSliceState = {
+          isOpen: true,
+          severity: "success",
+          children: response.data.message,
+        }
+
+        dispatch(alertActions.setAlertStateOpen(alertSate))
+        helpers.resetForm()
+        navigate(PagesPaths.SIGNIN)
+        
+
+      } catch (e: any) {
+        const error = e.response.data;
+
+        let alertSate: alertSliceState = {
+          isOpen: true,
+          severity: "error",
+          children: error.errorMessage,
+        }
+        dispatch(alertActions.setAlertStateOpen(alertSate))
+      }
     },
   })
 
