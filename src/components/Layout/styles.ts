@@ -1,7 +1,22 @@
 import styled from "@emotion/styled"
-import { NavLink, Link as SimpleLink} from "react-router-dom"
+import { NavLink, Link as SimpleLink } from "react-router-dom"
+import { Alert, Modal } from "@mui/material"
 
 import { colors } from "styles/colors"
+
+export const StyledModal = styled(Modal)`
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  width: 450px;
+  height: fit-content;
+`
+
+export const StyledAlert= styled(Alert)`
+
+width: 100%;
+height: 100%;
+`
 
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -20,12 +35,12 @@ export const Header = styled.div`
   padding: 10px;
   background-color: ${colors.LIGHTBLUE};
   gap: 10px;
-  box-shadow: 0px 25px 20px -20px rgba(0,0,0,0.45);
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
   padding-left: 120px;
   padding-right: 120px;
   align-items: center;
   justify-content: space-between;
-  `
+`
 
 export const LogoDiv = styled.div`
   display: flex;

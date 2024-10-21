@@ -1,5 +1,7 @@
-import { alertProps } from "components/Alert/types"
+import { ReactNode } from "react"
+
 export interface alertSliceState {
-  alertProps: alertProps
   isOpen: boolean
+  children: ReactNode | undefined
+  severity: "info" | "success" | "error" | "warning" | undefined
 }
