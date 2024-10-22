@@ -9,8 +9,13 @@ const Input = ({
   placeholder,
   label,
   name,
+<<<<<<< HEAD
   type = InputTypes.TEXT,
   disabled = false,
+=======
+  disabled=false,
+  type = InputTypes.TEXT
+>>>>>>> 90a0bcf5e135dcfd77c00df4bdfcaa825d3ec303
 }: InputProps) => {
   return (
     <StyledInput

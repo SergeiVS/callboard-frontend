@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom"
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react"
+=======
+import React, { useEffect } from "react"
+>>>>>>> 90a0bcf5e135dcfd77c00df4bdfcaa825d3ec303
 
 import {
   StyledModal,
@@ -18,9 +22,15 @@ import {
   Footer,
 } from "./styles"
 
+<<<<<<< HEAD
 import myaccount from "assets/myaccount.png"
 import myposts from "assets/myposts.png"
 import newpost from "assets/createpost.png"
+=======
+import myaccount from "assets/myaccount.png";
+import myposts from "assets/myposts.png";
+import newpost from "assets/createpost.png";
+>>>>>>> 90a0bcf5e135dcfd77c00df4bdfcaa825d3ec303
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
@@ -39,8 +49,21 @@ import {
 } from "store/redux/signInFormSlice/SignInFormSlice"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { IconButton } from "@mui/material"
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 90a0bcf5e135dcfd77c00df4bdfcaa825d3ec303
 
 function Layout({ children }: LayoutProps) {
+  const dispatch = useAppDispatch()
+  const isLoggedOn = useAppSelector(signInSelectors.isLoggedOn)
+
+
+  useEffect(() => {
+      dispatch(signInActions.getUser())
+  }, [isLoggedOn])
+  
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const isLoggedOn = useAppSelector(signInSelectors.isLoggedOn)
@@ -135,9 +158,13 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.MYPOSTS}
           >
+<<<<<<< HEAD
             <IconControl>
               <Icon src={myposts} />
             </IconControl>
+=======
+            <IconControl><Icon src={myposts}/></IconControl>
+>>>>>>> 90a0bcf5e135dcfd77c00df4bdfcaa825d3ec303
             My Posts
           </Link>
           <Link
@@ -146,9 +173,13 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.CREATEPOST}
           >
+<<<<<<< HEAD
             <IconControl>
               <Icon src={newpost} />
             </IconControl>
+=======
+            <IconControl><Icon src={newpost}/></IconControl>
+>>>>>>> 90a0bcf5e135dcfd77c00df4bdfcaa825d3ec303
             Create Post
           </Link>
         </NavigationMenu>
