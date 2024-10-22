@@ -6,6 +6,7 @@ import Input from "components/Input/input"
 import Button from "components/Button/Button"
 import EditIcon from "@mui/icons-material/Edit"
 
+
 import {
   StyledAccount,
   StyledLable,
@@ -153,6 +154,7 @@ function Account() {
             </Button>
           </ButtonContainer>
         </ButtonsGroup>
+
       </StyledAccount>
     </>
   )

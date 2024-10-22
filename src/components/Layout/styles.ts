@@ -74,8 +74,9 @@ export const NavigationContainer = styled.nav`
 export const Link = styled(NavLink)`
   display: flex;
   gap: 8px;
+  align-items: anchor-center;
   color: ${colors.GREY};
-  font-size: 20px;
+  font-size: 24px;
   font-weight: normal;
   text-decoration: none;
 `
@@ -88,7 +89,9 @@ export const Main = styled.main`
 
 export const NavigationMenu = styled.nav`
   display: flex;
+  position: absolute;
   margin-top: 30px;
+  right:15px;
   margin-right: 100px;
   margin-left: 100px;
   flex-direction: column;

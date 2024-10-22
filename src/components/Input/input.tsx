@@ -11,6 +11,7 @@ const Input = ({
   name,
   type = InputTypes.TEXT,
   disabled = false,
+  
 }: InputProps) => {
   return (
     <StyledInput

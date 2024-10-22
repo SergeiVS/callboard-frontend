@@ -6,6 +6,7 @@ export const StyledInput = styled(TextField)`
   border-radius: 9px;
   background-color: white;
 `
+
 export const StyledInputDescription = styled(TextField)`
   border-radius: 9px;
   height: 150px;
