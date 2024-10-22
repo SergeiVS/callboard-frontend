@@ -44,7 +44,7 @@ export const signInFormSlice = createAppSlice({
         pending: (state: SignInState) => {
           state.isPending = true
           state.isLoggedOn = false
-          state.error = undefined
+          state.error = ""
         },
 
         fulfilled: (state: SignInState, action) => {
