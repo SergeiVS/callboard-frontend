@@ -6,7 +6,7 @@ import Input from "components/Input/input"
 import Button from "components/Button/Button"
 import EditIcon from "@mui/icons-material/Edit"
 
-<<<<<<< HEAD
+
 import {
   StyledAccount,
   StyledLable,
@@ -154,24 +154,7 @@ function Account() {
             </Button>
           </ButtonContainer>
         </ButtonsGroup>
-=======
-import { StyledAccount, StyledLable, ButtonContainer } from "./styles" 
-import { SignInFormProps } from "components/SignInForm/types"
-import { useAppDispatch } from "store/hooks"
-import { signInActions } from "store/redux/signInFormSlice/SignInFormSlice"
 
-function Account() {
-  const dispatch = useAppDispatch()
-
-  return (
-    <>
-      <StyledAccount >
-        <StyledLable>My Account</StyledLable>
-        <Input name="firstname" placeholder="Firstname" onChange={() => {}} disabled  />
-        <Input name="lastname" placeholder="Lastname" onChange={() => {}} disabled/>
-        <Input name="phone-number" placeholder="Phone number" onChange={() => {}} disabled/>
-        <Input name="email" placeholder="Email" onChange={() => {}} disabled/>
->>>>>>> 90a0bcf5e135dcfd77c00df4bdfcaa825d3ec303
       </StyledAccount>
     </>
   )
