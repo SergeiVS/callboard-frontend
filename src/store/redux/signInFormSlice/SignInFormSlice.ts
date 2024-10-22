@@ -6,7 +6,14 @@ import { SignInState } from "./types"
 import { LogIn } from "components/SignInForm/types"
 
 const signInInitialState: SignInState = {
-  user: undefined,
+  user: {
+    id: 0,
+    firstName: "FirstName",
+    lastName: "Lastname",
+    email: "Email",
+    phoneNumber: "N/A",
+    roles: ["User"],
+  },
   isPending: false,
   isLoggedOn: false,
   error: undefined,
@@ -75,6 +82,7 @@ export const signInFormSlice = createAppSlice({
 
         fulfilled: (state: SignInState, action: any) => {
           state.isPending = false
+          state.isLoggedOn = true
           state.user = action.payload
         },
 
@@ -82,7 +90,7 @@ export const signInFormSlice = createAppSlice({
           state.error = action.error.message
           state.isLoggedOn = false
           state.isPending = false
-          state.user = undefined
+          state.user = signInInitialState.user
         },
       },
     ),
