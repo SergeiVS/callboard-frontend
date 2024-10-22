@@ -56,6 +56,9 @@ function SignUpForm() {
         }
 
         dispatch(alertActions.setAlertStateOpen(alertSate))
+        setTimeout(() => {
+          dispatch(alertActions.closeAlert())
+        }, 2000);
         helpers.resetForm()
         navigate(PagesPaths.SIGNIN)
         
@@ -69,6 +72,9 @@ function SignUpForm() {
           children: error.errorMessage,
         }
         dispatch(alertActions.setAlertStateOpen(alertSate))
+        setTimeout(() => {
+          dispatch(alertActions.closeAlert())
+        }, 2000);
       }
     },
   })
