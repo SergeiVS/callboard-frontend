@@ -11,7 +11,7 @@ import {
   StyledAccount,
   StyledLable,
   ButtonContainer,
-  ButtonsGroup,
+  ButtonsWrapper,
 } from "./styles"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import {
@@ -138,7 +138,7 @@ function Account() {
           disabled
           type={InputTypes.EMAIL}
         />
-        <ButtonsGroup>
+        <ButtonsWrapper>
           <ButtonContainer>
             <Button
               type="button"
@@ -153,7 +153,7 @@ function Account() {
               Send
             </Button>
           </ButtonContainer>
-        </ButtonsGroup>
+        </ButtonsWrapper>
 
       </StyledAccount>
     </>

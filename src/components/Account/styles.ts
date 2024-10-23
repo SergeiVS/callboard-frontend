@@ -15,7 +15,7 @@ export const ButtonContainer = styled.div`
 padding: 10px;
   width: 120px;
 `
-export const ButtonsGroup = styled.div`
+export const ButtonsWrapper = styled.div`
 display: flex;
 gap: 20px;
 width: 100%;
