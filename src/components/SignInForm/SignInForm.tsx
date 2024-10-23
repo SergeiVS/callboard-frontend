@@ -11,6 +11,7 @@ import { PagesPaths } from "components/Layout/types"
 import { InputTypes } from "components/Input/types"
 import { useAppDispatch } from "store/hooks"
 import { signInActions } from "store/redux/signInFormSlice/SignInFormSlice"
+import { alertActions } from "store/redux/alertSlice/AlertSlice"
 
 function SignInForm() {
   const dispatch = useAppDispatch()
@@ -29,6 +30,15 @@ function SignInForm() {
       let login: LogIn = { email: values.email, password: values.password }
       const dispatchResult = await dispatch(signInActions.login(login))
       if (signInActions.login.fulfilled.match(dispatchResult)) {
+        dispatch(
+          alertActions.setAlertStateOpen({
+            isOpen: true,
+            severity: "info",
+            children: `User ${values.email} is successfully logged`,
+          }),
+        )
+
+        setTimeout(() => dispatch(alertActions.closeAlert()), 2000)
         navigate(PagesPaths.HOME)
         helpers.resetForm()
       }
