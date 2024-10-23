@@ -6,7 +6,6 @@ import Input from "components/Input/input"
 import Button from "components/Button/Button"
 import EditIcon from "@mui/icons-material/Edit"
 
-
 import {
   StyledAccount,
   StyledLable,
@@ -29,6 +28,10 @@ function Account() {
   const [isInputDisabled, setInputDisabled] = useState(true)
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
+  const setAlertCloseTimeout = () =>
+    setTimeout(() => {
+      dispatch(alertActions.closeAlert())
+    }, 2000)
 
   const onEditButton = () => {
     setInputDisabled(false)
@@ -75,14 +78,14 @@ function Account() {
             },
           },
         )
-        dispatch(signInActions.getUser)
-
         let alertSate: alertSliceState = {
           isOpen: true,
           severity: "info",
           children: response.data.message,
         }
         dispatch(alertActions.setAlertStateOpen(alertSate))
+        setAlertCloseTimeout()
+
         setInputDisabled(true)
         setSendButtonDisabled(true)
         setEditButtonDisabled(false)
@@ -96,6 +99,7 @@ function Account() {
           children: error.errorMessage,
         }
         dispatch(alertActions.setAlertStateOpen(alertSate))
+        setAlertCloseTimeout()
       }
     },
   })
@@ -154,7 +158,6 @@ function Account() {
             </Button>
           </ButtonContainer>
         </ButtonsWrapper>
-
       </StyledAccount>
     </>
   )

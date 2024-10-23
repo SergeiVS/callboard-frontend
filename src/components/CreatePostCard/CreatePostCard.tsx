@@ -6,8 +6,8 @@ import {
   ButtonWraper,
 } from "components/CreatePostCard/styles"
 import { SignInPostProps } from "components/CreatePostCard/types"
-import RadioButton from "components/RadioButton/RadioButton"
-import RadioGroupComp from "components/radiogroup/RadioGroupComp"
+import RadioButton from "components/radioButton/RadioButton"
+import RadioGroupComp from "components/radioGroup/RadioGroupComp"
 import { StyledInputDescription } from "components/Input/styles"
 import { useState } from "react";
 
