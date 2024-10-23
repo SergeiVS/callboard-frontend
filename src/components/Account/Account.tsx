@@ -28,11 +28,7 @@ function Account() {
   const [isInputDisabled, setInputDisabled] = useState(true)
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
-  const setAlertCloseTimeout = () =>
-    setTimeout(() => {
-      dispatch(alertActions.closeAlert())
-    }, 2000)
-
+ 
   const onEditButton = () => {
     setInputDisabled(false)
     setSendButtonDisabled(false)
@@ -84,7 +80,6 @@ function Account() {
           children: response.data.message,
         }
         dispatch(alertActions.setAlertStateOpen(alertSate))
-        setAlertCloseTimeout()
 
         setInputDisabled(true)
         setSendButtonDisabled(true)
@@ -99,7 +94,6 @@ function Account() {
           children: error.errorMessage,
         }
         dispatch(alertActions.setAlertStateOpen(alertSate))
-        setAlertCloseTimeout()
       }
     },
   })

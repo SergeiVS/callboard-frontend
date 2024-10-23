@@ -1,6 +1,6 @@
 import React from "react"
 import { InputProps, InputTypes } from "./types"
-import { StyledInput, StyledInputDescription } from "./styles"
+import { StyledInput } from "./styles"
 
 const Input = ({
   value,
@@ -11,7 +11,6 @@ const Input = ({
   name,
   type = InputTypes.TEXT,
   disabled = false,
-  
 }: InputProps) => {
   return (
     <StyledInput
