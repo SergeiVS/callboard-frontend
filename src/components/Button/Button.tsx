@@ -3,16 +3,15 @@ import { ButtonProps } from "./types"
 import { variants } from "./types"
 
 function Button({
-  disabled,
+  disabled = false,
   onClick,
   children,
   isDeleteButton,
   isRegularButton,
-  type="submit"
+  type = "submit",
 }: ButtonProps) {
-
-  const variant = isDeleteButton || !isRegularButton ? variants.OUTLINED : variants.CONTAINED
-  
+  const variant =
+    isDeleteButton || !isRegularButton ? variants.OUTLINED : variants.CONTAINED
 
   return (
     <>

@@ -4,6 +4,6 @@ export interface RadioGroupProps {
   row: boolean
   name: string
   defaultValue?: string
-  onCange: () => void
   children: ReactNode
+  onCange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }

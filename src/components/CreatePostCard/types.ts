@@ -1,3 +1,4 @@
-export interface SignInPostProps{
-    onSubmit:()=>void
+export interface createPostProps{
+    // onSubmit:()=>void
 }
+

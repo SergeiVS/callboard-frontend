@@ -3,7 +3,7 @@
 import { MouseEventHandler, ReactNode } from "react"
 
 export interface ButtonProps {
-  disabled?: boolean
+  disabled: boolean
   isDeleteButton?: boolean
   isRegularButton?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement>

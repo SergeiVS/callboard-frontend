@@ -28,7 +28,7 @@ function Account() {
   const [isInputDisabled, setInputDisabled] = useState(true)
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
- 
+
   const onEditButton = () => {
     setInputDisabled(false)
     setSendButtonDisabled(false)
@@ -87,7 +87,6 @@ function Account() {
         getNewValues()
       } catch (e: any) {
         const error = e.response.data
-
         let alertSate: alertSliceState = {
           isOpen: true,
           severity: "error",

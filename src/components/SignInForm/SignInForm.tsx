@@ -54,7 +54,11 @@ function SignInForm() {
 
   return (
     <>
-      <StyledForm onSubmit={formik.handleSubmit}>
+      <StyledForm
+        onSubmit={
+          formik.handleSubmit
+        }
+      >
         <StyledLable>Sign in</StyledLable>
         <Input
           name="email"
@@ -73,7 +77,12 @@ function SignInForm() {
           error={formik.errors["password"]}
         />
         <ButtonContainer>
-          <Button isRegularButton>Sign in</Button>
+          <Button
+            isRegularButton
+            disabled={!formik.dirty || formik.isSubmitting}
+          >
+            Sign in
+          </Button>
         </ButtonContainer>
       </StyledForm>
     </>
