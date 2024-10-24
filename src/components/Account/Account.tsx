@@ -6,7 +6,6 @@ import Input from "components/Input/input"
 import Button from "components/Button/Button"
 import EditIcon from "@mui/icons-material/Edit"
 
-
 import {
   StyledAccount,
   StyledLable,
@@ -75,21 +74,19 @@ function Account() {
             },
           },
         )
-        dispatch(signInActions.getUser)
-
         let alertSate: alertSliceState = {
           isOpen: true,
           severity: "info",
           children: response.data.message,
         }
         dispatch(alertActions.setAlertStateOpen(alertSate))
+
         setInputDisabled(true)
         setSendButtonDisabled(true)
         setEditButtonDisabled(false)
         getNewValues()
       } catch (e: any) {
         const error = e.response.data
-
         let alertSate: alertSliceState = {
           isOpen: true,
           severity: "error",
@@ -154,7 +151,6 @@ function Account() {
             </Button>
           </ButtonContainer>
         </ButtonsWrapper>
-
       </StyledAccount>
     </>
   )

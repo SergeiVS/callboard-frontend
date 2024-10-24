@@ -1,6 +1,6 @@
 import React from "react"
 import { InputProps, InputTypes } from "./types"
-import { StyledInput, StyledInputDescription } from "./styles"
+import { StyledInput } from "./styles"
 
 const Input = ({
   value,
@@ -11,7 +11,8 @@ const Input = ({
   name,
   type = InputTypes.TEXT,
   disabled = false,
-  
+  multiline=false,
+  rows
 }: InputProps) => {
   return (
     <StyledInput
@@ -24,6 +25,8 @@ const Input = ({
       error={!!error}
       helperText={error}
       fullWidth
+      multiline={multiline}
+      rows={rows}
       disabled={disabled}
     />
   )
