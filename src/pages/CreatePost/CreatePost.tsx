@@ -1,13 +1,15 @@
-import { PageWrapper } from "./styles";
+import { PageWrapper } from "./styles"
 
-import CreatePostCard from "components/CreatePostCard/CreatePostCard";
+import CreatePostForm from "components/CreatePostForm/CreatePostForm"
 
-function CreatePost () {
-    return (
-        <>
-        <PageWrapper><CreatePostCard onSubmit={() => {}}/></PageWrapper>
-        </>
-    )
+function CreatePost() {
+  return (
+    <>
+      <PageWrapper>
+        <CreatePostForm />
+      </PageWrapper>
+    </>
+  )
 }
 
 export default CreatePost

@@ -58,7 +58,7 @@ function Layout({ children }: LayoutProps) {
   useEffect(() => {
     if (isModalOpen) {
       setModalOpen(true)
-      setTimeout(()=>dispatch(alertActions.closeAlert()), 2000)
+      setTimeout(() => dispatch(alertActions.closeAlert()), 5000)
     } else {
       setModalOpen(false)
     }

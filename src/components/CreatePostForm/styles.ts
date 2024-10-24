@@ -14,3 +14,8 @@ export const ButtonWraper = styled.div`
   align-self: center;
   width: 100px;
 `
+
+export const DescriptionWrapper= styled.div`
+width: 100%;
+height: 250px;
+`

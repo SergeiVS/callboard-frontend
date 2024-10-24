@@ -11,6 +11,8 @@ const Input = ({
   name,
   type = InputTypes.TEXT,
   disabled = false,
+  multiline=false,
+  rows
 }: InputProps) => {
   return (
     <StyledInput
@@ -23,6 +25,8 @@ const Input = ({
       error={!!error}
       helperText={error}
       fullWidth
+      multiline={multiline}
+      rows={rows}
       disabled={disabled}
     />
   )

@@ -1,6 +1,6 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
@@ -16,43 +16,45 @@ import {
   StyledLable,
   StyledPostCard,
   ButtonWraper,
-} from "components/CreatePostCard/styles"
-import { StyledInputDescription } from "components/Input/styles"
+} from "components/CreatePostForm/styles"
 import { PagesPaths } from "components/Layout/types"
 
-function CreatePostCard() {
+function CreatePostForm() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const [file, setFiles] = useState<File[]>([]) //
   const [fileNames, setFileNames] = useState<string[]>([])
 
   const validationSchema = Yup.object().shape({
-    header: Yup.string().required("Header is required field").min(5),
-    desciption: Yup.string()
+    header: Yup.string()
+      .required("Header is required field")
+      .min(5, "Header should be longer as 5 symbols"),
+    description: Yup.string()
       .required("Description is required field")
-      .min(5)
-      .max(200),
+      .min(5, "Description should be longer as 5 symbols")
+      .max(200, "Description should not be longer as 200 symbols"),
   })
+
+  const userId: number = useAppSelector(signInSelectors.user).id
 
   const formik = useFormik({
     initialValues: {
-      userId: useAppSelector(signInSelectors.user).id,
+      userId: { userId },
       subject: "",
       header: "",
       description: "",
       photoLink: "",
     },
-    
+
     validationSchema: validationSchema,
     validateOnChange: false,
 
     onSubmit: async (values, helpers) => {
-      console.log("Submitting")
       try {
         const response = await axios.post(
           "/api/posts",
           {
-            userId: useAppSelector(signInSelectors.user).id,
+            userId: userId,
             subject: values.subject,
             header: values.header,
             description: values.description,
@@ -66,8 +68,6 @@ function CreatePostCard() {
           },
         )
 
-        helpers.resetForm()
-        navigate(PagesPaths.MYPOSTS)
         dispatch(
           alertActions.setAlertStateOpen({
             isOpen: true,
@@ -75,12 +75,18 @@ function CreatePostCard() {
             children: response.data.message,
           }),
         )
+
+        helpers.resetForm()
+        navigate(PagesPaths.MYPOSTS)
       } catch (e: any) {
+        console.log(e)
+        const error = e.response.data
+
         dispatch(
           alertActions.setAlertStateOpen({
             isOpen: true,
             severity: "error",
-            children: e.response.data.errorMessage,
+            children: error.errorMessage,
           }),
         )
       }
@@ -99,10 +105,6 @@ function CreatePostCard() {
     document.getElementById("photo-upload")?.click()
   }
 
-  useEffect(() => {
-    console.log(formik.values)
-  }, [formik.values])
-
   return (
     <>
       <StyledPostCard onSubmit={formik.handleSubmit}>
@@ -112,14 +114,22 @@ function CreatePostCard() {
           <RadioButton value="OFFER HELP" lable="Offer Help" />
         </RadioGroupComp>
 
-        <Input name="header" label="Headline" onChange={formik.handleChange} />
-        <StyledInputDescription
-          name="description"
-          label="Description..."
+        <Input
+          name="header"
+          label="Headline"
           onChange={formik.handleChange}
-          multiline
-          rows={5}
+          error={formik.errors.header}
         />
+      
+          <Input
+            name="description"
+            label="Description..."
+            onChange={formik.handleChange}
+            multiline
+            rows={5}
+            error={formik.errors.description}
+          />
+
 
         {/* Кнопка загрузки файлов */}
         <label htmlFor="photo-upload" style={{ display: "inline-block" }}>
@@ -141,11 +151,12 @@ function CreatePostCard() {
             multiple
             value={formik.values.photoLink}
           />
+          {}
         </label>
 
         {/* Отображение имен загруженных файлов*/}
         {fileNames.length > 0 && (
-          <div style={{ marginTop: "10px" }}>
+          <div style={{ padding: "10px" }}>
             <strong>Uploaded Photo:</strong>
             <ul>
               {fileNames.map((fileName, index) => (
@@ -159,7 +170,6 @@ function CreatePostCard() {
           <Button
             isRegularButton
             disabled={!formik.dirty || formik.isSubmitting}
-            type="submit"
           >
             Send
           </Button>
@@ -168,4 +178,4 @@ function CreatePostCard() {
     </>
   )
 }
-export default CreatePostCard
+export default CreatePostForm

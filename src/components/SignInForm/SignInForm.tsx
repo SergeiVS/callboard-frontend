@@ -26,10 +26,12 @@ function SignInForm() {
     initialValues: { ["email"]: "", ["password"]: "" },
     validationSchema: validationSchema,
     validateOnChange: false,
+
     onSubmit: async (values, helpers) => {
       let login: LogIn = { email: values.email, password: values.password }
 
       const dispatchResult = await dispatch(signInActions.login(login))
+
       if (signInActions.login.fulfilled.match(dispatchResult)) {
         dispatch(
           alertActions.setAlertStateOpen({
@@ -54,11 +56,7 @@ function SignInForm() {
 
   return (
     <>
-      <StyledForm
-        onSubmit={
-          formik.handleSubmit
-        }
-      >
+      <StyledForm onSubmit={formik.handleSubmit}>
         <StyledLable>Sign in</StyledLable>
         <Input
           name="email"
@@ -66,7 +64,7 @@ function SignInForm() {
           onChange={formik.handleChange}
           value={formik.values.email}
           type={InputTypes.EMAIL}
-          error={formik.errors["email"]}
+          error={formik.errors.email}
         />
         <Input
           name="password"
@@ -74,7 +72,7 @@ function SignInForm() {
           onChange={formik.handleChange}
           value={formik.values.password}
           type={InputTypes.PASSWORD}
-          error={formik.errors["password"]}
+          error={formik.errors.password}
         />
         <ButtonContainer>
           <Button

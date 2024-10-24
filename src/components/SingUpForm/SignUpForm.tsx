@@ -55,6 +55,7 @@ function SignUpForm() {
        
         helpers.resetForm()
         navigate(PagesPaths.SIGNIN)
+        
       } catch (e: any) {
         const error = e.response.data
 

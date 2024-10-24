@@ -6,7 +6,7 @@ function Button({
   disabled = false,
   onClick,
   children,
-  isDeleteButton,
+  isDeleteButton= false,
   isRegularButton,
   type = "submit",
 }: ButtonProps) {
@@ -24,7 +24,6 @@ function Button({
         $isRegularButton={isRegularButton}
         //if true: Button variant= outlined, border DELETE_BUTTON
         $isDeleteButton={isDeleteButton}
-        classes="root"
       >
         {children}
       </StyledButton>
