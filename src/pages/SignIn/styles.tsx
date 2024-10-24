@@ -5,8 +5,8 @@ import { colors } from "styles/colors"
 
 export const PageWrapper = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
-  flex: 1;
   align-items: center;
   justify-content: center;
   gap: 120px;

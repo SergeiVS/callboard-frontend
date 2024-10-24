@@ -9,7 +9,9 @@ const Input = ({
   placeholder,
   label,
   name,
-  type
+  type = InputTypes.TEXT,
+  disabled = false,
+  
 }: InputProps) => {
   return (
     <StyledInput
@@ -22,6 +24,7 @@ const Input = ({
       error={!!error}
       helperText={error}
       fullWidth
+      disabled={disabled}
     />
   )
 }

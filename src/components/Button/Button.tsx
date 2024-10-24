@@ -8,6 +8,7 @@ function Button({
   children,
   isDeleteButton,
   isRegularButton,
+  type="submit"
 }: ButtonProps) {
 
   const variant = isDeleteButton || !isRegularButton ? variants.OUTLINED : variants.CONTAINED
@@ -18,7 +19,7 @@ function Button({
       <StyledButton
         variant={variant}
         onClick={onClick}
-        type="submit"
+        type={type}
         disabled={disabled}
         //RegularButton with variant contained, if false button variant= outlined
         $isRegularButton={isRegularButton}

@@ -7,6 +7,7 @@ export interface ButtonProps {
   isDeleteButton?: boolean
   isRegularButton?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement>
+  type?: "button"|"submit"
   children?: ReactNode
 }
 

@@ -4,23 +4,19 @@ import { colors } from "styles/colors"
 
 export const PageWrapper = styled.div`
   display: flex;
-  min-height: 500px;
-  margin-top: -450px;;
+  height: 460px;
+  background-color: ${colors.LIGHTBLUE};
   justify-content: left;
   padding-left: 130px;
+  padding-right: 130px;
   gap: 100px;
-`
-
-export const ColoredContainer = styled.div`
- height: 500px;
- background-color: ${colors.LIGHTBLUE};
 `
 
 export const AboutUs = styled.div `
   display: flex;
   flex-direction: column;
   height: 500px;
-  width: 40%;
+  width: 500px;
   gap: 30px;
   padding-top: 30px;
 `
@@ -36,7 +32,7 @@ export const AboutUsText = styled.p`
 `
 
 export const PictureControl = styled.div`
-  width: 800px;
+  width: 700px;
   padding-top: 30px;
 `
 
