@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom"
 
 import React, { useEffect, useState } from "react"
 
-
 import {
   StyledModal,
   StyledAlert,
@@ -20,9 +19,9 @@ import {
   Footer,
 } from "./styles"
 
-
 import myaccount from "assets/myaccount.png"
 import myposts from "assets/myposts.png"
+import newpost from "assets/createpost.png"
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
@@ -42,24 +41,10 @@ import {
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { IconButton } from "@mui/material"
 
-
 function Layout({ children }: LayoutProps) {
-  const dispatch = useAppDispatch()
-  const isLoggedOn = useAppSelector(signInSelectors.isLoggedOn)
-
-
-  useEffect(() => {
-      dispatch(signInActions.getUser())
-  }, [isLoggedOn])
-  
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const isLoggedOn = useAppSelector(signInSelectors.isLoggedOn)
-
-  useEffect(() => {
-    dispatch(signInActions.getUser())
-  }, [isLoggedOn])
-
   const [modalOpen, setModalOpen] = useState(false)
 
   const isModalOpen = useAppSelector(alertSelectors.isOpen)
@@ -67,8 +52,13 @@ function Layout({ children }: LayoutProps) {
   const message = useAppSelector(alertSelectors.cildren)
 
   useEffect(() => {
+    dispatch(signInActions.getUser())
+  }, [isLoggedOn])
+
+  useEffect(() => {
     if (isModalOpen) {
       setModalOpen(true)
+      setTimeout(() => dispatch(alertActions.closeAlert()), 5000)
     } else {
       setModalOpen(false)
     }
@@ -146,11 +136,9 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.MYPOSTS}
           >
-
             <IconControl>
               <Icon src={myposts} />
             </IconControl>
-
             My Posts
           </Link>
           <Link
@@ -159,11 +147,9 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.CREATEPOST}
           >
-
             <IconControl>
               <Icon src={newpost} />
             </IconControl>
-
             Create Post
           </Link>
         </NavigationMenu>
