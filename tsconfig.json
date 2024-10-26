@@ -10,10 +10,11 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "module": "ESNext",
+    "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
+    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
     "composite": true,
     "jsx": "react-jsx",
     "types": ["vitest/globals"]
