@@ -21,7 +21,7 @@ function AllPosts () {
         <>
         <PageWrapper>
         <PostsWrapper>
-            <PostCard headline={testCard.header} description={testCard.description} contactInfo={testCard.user.name} image={testCard.photoLink} />
+            <PostCard headline={testCard.header} description={testCard.description} contactInfo={testCard.user.name} image={testCard.photoLink} id={undefined}/>
         </PostsWrapper>
         </PageWrapper>
         </>

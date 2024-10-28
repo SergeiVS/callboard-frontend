@@ -4,6 +4,8 @@ import axios from "axios";
 import PostCard from "components/PostCard/PostCard";
 import postsReducer, { setUserPosts } from "../../store/redux/postsSlice/postsSlice";
 import { RootState } from "../../store/store";
+import { PostCardProps } from "components/PostCard/types";
+import { JSX } from "react/jsx-runtime";
 
 export function MyPosts() {
   const dispatch = useAppDispatch();
@@ -28,7 +30,7 @@ export function MyPosts() {
 
   return (
     <div>
-      {posts.map((post, index) => (
+      {posts.map((post: JSX.IntrinsicAttributes & PostCardProps, index: React.Key | null | undefined) => (
         <PostCard key={index} {...post} />
       ))}
     </div>

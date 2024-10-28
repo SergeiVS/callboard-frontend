@@ -9,7 +9,7 @@ import {
   Tag,
 } from "./styles";
 
-function PostCard({ image, header, description, tag }: PostCardProps) {
+function PostCard({ image, header, description, contactInfo }: PostCardProps) {
   return (
     <StyledPostCardWrapper>
       <ImageWrapper>
@@ -17,7 +17,7 @@ function PostCard({ image, header, description, tag }: PostCardProps) {
       </ImageWrapper>
       <InfoWrapper>
         <Title>{header}</Title>
-        <Tag>{tag}</Tag>
+        <Tag>{contactInfo}</Tag>
         <Description>{description}</Description>
       </InfoWrapper>
     </StyledPostCardWrapper>
