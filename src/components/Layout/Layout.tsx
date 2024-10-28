@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom"
 
+import React, { useEffect, useState } from "react"
+
+
 import {
   StyledModal,
   StyledAlert,
@@ -17,9 +20,10 @@ import {
   Footer,
 } from "./styles"
 
-import myaccount from "assets/myaccount.png";
-import myposts from "assets/myposts.png";
-import newpost from "assets/createpost.png";
+
+import myaccount from "assets/myaccount.png"
+import myposts from "assets/myposts.png"
+import newpost from "assets/createpost.png"
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
@@ -29,16 +33,28 @@ import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
 import SignInForm from "components/SignInForm/SignInForm"
 import PostCard from "components/PostCard/PostCard"
+
 import CloseIcon from "@mui/icons-material/Close"
-import { useEffect, useState } from "react"
 import { alertSelectors, alertActions } from "store/redux/alertSlice/AlertSlice"
+import {
+  signInActions,
+  signInSelectors,
+} from "store/redux/signInFormSlice/SignInFormSlice"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { IconButton } from "@mui/material"
-// import useAlert from "hooks/useAlert"
+
 
 function Layout({ children }: LayoutProps) {
-  const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  const isLoggedOn = useAppSelector(signInSelectors.isLoggedOn)
+
+
+  useEffect(() => {
+      dispatch(signInActions.getUser())
+  }, [isLoggedOn])
+  
+  const navigate = useNavigate()
+
 
   const [modalOpen, setModalOpen] = useState(false)
 
@@ -46,13 +62,10 @@ function Layout({ children }: LayoutProps) {
   const severity = useAppSelector(alertSelectors.severity)
   const message = useAppSelector(alertSelectors.cildren)
 
-  // const { open } = useAlert()
-
   useEffect(() => {
     if (isModalOpen) {
       setModalOpen(true)
     } else {
-      // dispatch(alertActions.closeAlert())
       setModalOpen(false)
     }
   }, [isModalOpen])
@@ -129,7 +142,11 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.MYPOSTS}
           >
-            <IconControl><Icon src={myposts}/></IconControl>
+
+            <IconControl>
+              <Icon src={myposts} />
+            </IconControl>
+
             My Posts
           </Link>
           <Link
@@ -138,7 +155,11 @@ function Layout({ children }: LayoutProps) {
             })}
             to={PagesPaths.CREATEPOST}
           >
-            <IconControl><Icon src={newpost}/></IconControl>
+
+            <IconControl>
+              <Icon src={newpost} />
+            </IconControl>
+
             Create Post
           </Link>
         </NavigationMenu>

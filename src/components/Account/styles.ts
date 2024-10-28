@@ -1,9 +1,9 @@
-import { Container, FormControl, FormLabel } from "@mui/material"
+import { ButtonGroup, FormLabel } from "@mui/material"
 import styled from "@emotion/styled"
 import { colors } from "styles/colors"
 import { FormsCss } from "styles/CommonCss"
 
-export const StyledAccount = styled(FormControl)`
+export const StyledAccount = styled.form`
    ${FormsCss}
 `
 export const StyledLable = styled(FormLabel)`
@@ -12,6 +12,12 @@ export const StyledLable = styled(FormLabel)`
 `
 
 export const ButtonContainer = styled.div`
-  align-self: center;
-  width: 100px;
+padding: 10px;
+  width: 120px;
+`
+export const ButtonsWrapper = styled.div`
+display: flex;
+gap: 20px;
+width: 100%;
+justify-content: center;
 `

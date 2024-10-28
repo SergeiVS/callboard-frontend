@@ -9,8 +9,11 @@ import { StyledLable, ButtonContainer, StyledForm } from "./styles"
 import { LogIn } from "./types"
 import { PagesPaths } from "components/Layout/types"
 import { InputTypes } from "components/Input/types"
-import { useAppDispatch } from "store/hooks"
-import { signInActions } from "store/redux/signInFormSlice/SignInFormSlice"
+import { useAppDispatch, useAppSelector } from "store/hooks"
+import {
+  signInActions,
+  signInSelectors,
+} from "store/redux/signInFormSlice/SignInFormSlice"
 import { alertActions } from "store/redux/alertSlice/AlertSlice"
 
 function SignInForm() {
@@ -28,20 +31,29 @@ function SignInForm() {
     validateOnChange: false,
     onSubmit: async (values, helpers) => {
       let login: LogIn = { email: values.email, password: values.password }
-      const dispatchResult = await dispatch(signInActions.login(login))
-      if (signInActions.login.fulfilled.match(dispatchResult)) {
-        dispatch(
-          alertActions.setAlertStateOpen({
-            isOpen: true,
-            severity: "info",
-            children: `User ${values.email} is successfully logged`,
-          }),
-        )
-
-        setTimeout(() => dispatch(alertActions.closeAlert()), 2000)
-        navigate(PagesPaths.HOME)
-        helpers.resetForm()
-      }
+     
+        const dispatchResult = await dispatch(signInActions.login(login))
+        if (signInActions.login.fulfilled.match(dispatchResult)) {
+          dispatch(
+            alertActions.setAlertStateOpen({
+              isOpen: true,
+              severity: "info",
+              children: `User ${values.email} is successfully logged`,
+            }),
+          )
+          setTimeout(() => dispatch(alertActions.closeAlert()), 2000)
+          navigate(PagesPaths.HOME)
+          helpers.resetForm()
+        }else{
+          dispatch(
+            alertActions.setAlertStateOpen({
+              isOpen: true,
+              severity: "error",
+              children: `User ${values.email} Login failed`,
+            }),
+          )
+          setTimeout(() => dispatch(alertActions.closeAlert()), 2000)
+        }
     },
   })
 
