@@ -1,3 +1,6 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   PageWrapper,
   AboutUs,
@@ -7,11 +10,18 @@ import {
   ButtonContainer,
   PictureControl,
 } from "./styles"
+import { PagesPaths } from "components/Layout/types";
 
 import Button from "components/Button/Button"
 import picture from "assets/aboutusimage.jpg"
 
 function Home() {
+  const navigate = useNavigate();
+
+  const goToSignIN = () => {
+    navigate("/signin"); // укажите путь к нужной странице
+  };
+
   return (
     <>
       <PageWrapper>
@@ -27,7 +37,7 @@ function Home() {
             sanctus est Lorem ipsum dolor sit amet.
           </AboutUsText>
           <ButtonContainer>
-            <Button isRegularButton>Sign In</Button>
+            <Button isRegularButton onClick={goToSignIN}>Sign In</Button>
           </ButtonContainer>
         </AboutUs>
         <PictureControl>
