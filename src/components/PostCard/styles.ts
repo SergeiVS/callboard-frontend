@@ -1,11 +1,14 @@
-import styled from "styled-components";
+import styled from "@emotion/styled"
+
+import { colors } from "styles/colors"
 
 export const StyledPostCardWrapper = styled.div`
   display: flex;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
-  margin-bottom: 16px;
+  max-width: 800px;
+  background-color: white;
 `;
 
 export const ImageWrapper = styled.div`
