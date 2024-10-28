@@ -12,6 +12,7 @@ import {
   LogoImg,
   NavigationContainer,
   Link,
+  ButtonControl,
   Main,
   NavigationMenu,
   IconControl,
@@ -19,18 +20,15 @@ import {
   Footer,
 } from "./styles"
 
+import Button from "components/Button/Button"
+
 import myaccount from "assets/myaccount.png"
 import myposts from "assets/myposts.png"
 import newpost from "assets/createpost.png"
 
 import { LayoutProps, PagesPaths } from "./types"
 import logo from "assets/logo.png"
-import Home from "pages/Home/Home"
-import SignIn from "pages/SignIn/SignIn"
-import SignUp from "pages/SignUp/SignUp"
-import CreatePost from "pages/CreatePost/CreatePost"
-import SignInForm from "components/SignInForm/SignInForm"
-import PostCard from "components/PostCard/PostCard"
+
 
 import CloseIcon from "@mui/icons-material/Close"
 import { alertSelectors, alertActions } from "store/redux/alertSlice/AlertSlice"
@@ -73,6 +71,15 @@ function Layout({ children }: LayoutProps) {
     navigate(PagesPaths.HOME)
   }
 
+  const goToSignUp = () => {
+    navigate("/signup"); 
+  }
+
+  const signOut = () =>{
+     dispatch(signInActions.logOut())
+     navigate("/home")
+  }
+
   return (
     <LayoutWrapper>
       <StyledModal open={modalOpen} onClose={closeModal}>
@@ -83,13 +90,12 @@ function Layout({ children }: LayoutProps) {
           </IconButton>
         </StyledAlert>
       </StyledModal>
-
       <Header>
         <LogoDiv onClick={goToHomePage}>
           <LogoImg src={logo}></LogoImg>
           <LogoName>Help a hand</LogoName>
         </LogoDiv>
-        <NavigationContainer>
+        { isLoggedOn ? (<NavigationContainer>
           <Link
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",
@@ -106,19 +112,27 @@ function Layout({ children }: LayoutProps) {
           >
             Sign In
           </Link>
+          <ButtonControl>
+            <Button isRegularButton onClick={goToSignUp}>Sign Up</Button>
+          </ButtonControl>
+        </NavigationContainer>) : (<NavigationContainer>
           <Link
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",
             })}
-            to={PagesPaths.SIGNUP}
+            to={PagesPaths.ALLPOSTS}
           >
-            Sign Up
+            All Posts
           </Link>
-        </NavigationContainer>
+          <ButtonControl>
+            <Button isRegularButton onClick={signOut}>Sign Out</Button>
+          </ButtonControl>
+        </NavigationContainer>)}
+        
       </Header>
       <Main>
         {children}
-        <NavigationMenu>
+        <NavigationMenu style={{ display: isLoggedOn ? "flex" : "none" }}>
           <Link
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",

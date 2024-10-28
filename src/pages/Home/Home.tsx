@@ -19,7 +19,7 @@ function Home() {
   const navigate = useNavigate();
 
   const goToSignIN = () => {
-    navigate("/signin"); // укажите путь к нужной странице
+    navigate("/signin");
   };
 
   return (
