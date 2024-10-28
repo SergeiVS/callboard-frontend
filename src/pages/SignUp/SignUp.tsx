@@ -1,13 +1,15 @@
-import { PageWrapper } from "./styles";
+import { PageWrapper } from "./styles"
 
-import SignUpForm from "components/SingUpForm/SignUpForm";
+import SignUpForm from "components/SingUpForm/SignUpForm"
 
-function SignUp () {
-    return(
-        <><PageWrapper><SignUpForm/></PageWrapper>
-        </>
-    )
-    
+function SignUp() {
+  return (
+    <>
+      <PageWrapper>
+        <SignUpForm />
+      </PageWrapper>
+    </>
+  )
 }
 
 export default SignUp

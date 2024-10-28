@@ -1,16 +1,16 @@
 import { FormControl } from "@mui/material"
-import { RadioGroupProps } from "./types" 
-import { StyledRadioGroup } from "./Styles" 
+import { RadioGroupProps } from "components/radioGroup/types" 
+import { StyledRadioGroup } from "components/radioGroup/Styles" 
 
-function RadioGroupComp({ row, name, defaultValue, onCange, children }: RadioGroupProps) {
+function RadioGroupComp({ row, name, defaultValue, children, onCange}: RadioGroupProps) {
   return (
     <>
       <FormControl>
         <StyledRadioGroup
           row={row}
           name={name}
+          onChange={onCange}
           defaultValue={defaultValue}
-          onCange={onCange}
         >{children}
             {/* //Here will be placed <FormControlLabel/> with all needed props
             example <FormControlLable value="NEED HELP" 

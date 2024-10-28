@@ -11,8 +11,6 @@ import { StyledSignUpForm, StyledLable, ButtonContainer } from "./styles"
 import axios from "axios"
 import { InputTypes } from "components/Input/types"
 import { useAppDispatch } from "store/hooks"
-import { alertSliceState } from "store/redux/alertSlice/types"
-import { error } from "console"
 
 function SignUpForm() {
   const navigate = useNavigate()
@@ -49,32 +47,23 @@ function SignUpForm() {
           password: values.password,
         })
 
-        let alertSate: alertSliceState = {
+        dispatch(alertActions.setAlertStateOpen({
           isOpen: true,
           severity: "success",
           children: response.data.message,
-        }
-
-        dispatch(alertActions.setAlertStateOpen(alertSate))
-        setTimeout(() => {
-          dispatch(alertActions.closeAlert())
-        }, 2000);
+        }))
+       
         helpers.resetForm()
         navigate(PagesPaths.SIGNIN)
         
-
       } catch (e: any) {
-        const error = e.response.data;
+        const error = e.response.data
 
-        let alertSate: alertSliceState = {
+        dispatch(alertActions.setAlertStateOpen({
           isOpen: true,
           severity: "error",
           children: error.errorMessage,
-        }
-        dispatch(alertActions.setAlertStateOpen(alertSate))
-        setTimeout(() => {
-          dispatch(alertActions.closeAlert())
-        }, 2000);
+        }))
       }
     },
   })
@@ -116,7 +105,12 @@ function SignUpForm() {
           type={InputTypes.PASSWORD}
         />
         <ButtonContainer>
-          <Button isRegularButton>Sign Up</Button>
+          <Button
+            isRegularButton
+            disabled={!formik.dirty || formik.isSubmitting}
+          >
+            Sign Up
+          </Button>
         </ButtonContainer>
       </StyledSignUpForm>
     </>

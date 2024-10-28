@@ -3,16 +3,15 @@ import { ButtonProps } from "./types"
 import { variants } from "./types"
 
 function Button({
-  disabled,
+  disabled = false,
   onClick,
   children,
-  isDeleteButton,
+  isDeleteButton= false,
   isRegularButton,
-  type="submit"
+  type = "submit",
 }: ButtonProps) {
-
-  const variant = isDeleteButton || !isRegularButton ? variants.OUTLINED : variants.CONTAINED
-  
+  const variant =
+    isDeleteButton || !isRegularButton ? variants.OUTLINED : variants.CONTAINED
 
   return (
     <>
@@ -25,7 +24,6 @@ function Button({
         $isRegularButton={isRegularButton}
         //if true: Button variant= outlined, border DELETE_BUTTON
         $isDeleteButton={isDeleteButton}
-        classes="root"
       >
         {children}
       </StyledButton>
