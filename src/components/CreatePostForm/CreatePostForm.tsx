@@ -18,6 +18,8 @@ import {
   ButtonWraper,
 } from "components/CreatePostForm/styles"
 import { PagesPaths } from "components/Layout/types"
+import { PostCardProps } from "components/PostCard/types"
+import { setUserPosts } from "store/redux/postsSlice/postsSlice"
 
 function CreatePostForm() {
   const dispatch = useAppDispatch()
@@ -120,16 +122,15 @@ function CreatePostForm() {
           onChange={formik.handleChange}
           error={formik.errors.header}
         />
-      
-          <Input
-            name="description"
-            label="Description..."
-            onChange={formik.handleChange}
-            multiline
-            rows={5}
-            error={formik.errors.description}
-          />
 
+        <Input
+          name="description"
+          label="Description..."
+          onChange={formik.handleChange}
+          multiline
+          rows={5}
+          error={formik.errors.description}
+        />
 
         {/* Кнопка загрузки файлов */}
         <label htmlFor="photo-upload" style={{ display: "inline-block" }}>

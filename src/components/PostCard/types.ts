@@ -1,10 +1,15 @@
+import { Key } from "react";
+
 export interface PostCardProps {
-  image: string;
+  [x: string]: any;
+id:any;
+image: string;
   title: string;
-  price: string;
-  location: string;
+  description: string;
   tag: string;
-  isTop: boolean;
-  description:string;
-}
+  location: string;
+  email?: string;
+  isTop?: boolean;
+  header:string;
   
+}

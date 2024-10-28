@@ -1,32 +1,27 @@
-import { PostCardProps } from "./types"
+import React from "react";
+import { PostCardProps } from "./types";
 import {
-  StyledPostCard,
-  StyledImage,
-  StyledInfo,
-  StyledTitle,
-  StyledPrice,
-  StyledLocation,
-  StyledTag,
-  StyledTopTag,
-  Wrapper
-} from './styles';
+  StyledPostCardWrapper,
+  ImageWrapper,
+  InfoWrapper,
+  Title,
+  Description,
+  Tag,
+} from "./styles";
 
-function PostCard({ image, title, price, location, tag, isTop }: PostCardProps) {
-    return (
-        <StyledPostCard>
-            <Wrapper>
-                {isTop && <StyledTopTag>Help</StyledTopTag>}
-                <StyledImage src={image} alt={title} />
-                
-                <StyledInfo>
-                    <StyledTitle>{title}</StyledTitle>
-                    <StyledTag>{tag}</StyledTag>
-                    <StyledLocation>{location}</StyledLocation>
-                    <StyledPrice>{price}</StyledPrice>
-                </StyledInfo>
-            </Wrapper>
-        </StyledPostCard>
-    );
+function PostCard({ image, header, description, tag }: PostCardProps) {
+  return (
+    <StyledPostCardWrapper>
+      <ImageWrapper>
+        <img src={image} alt={header} style={{ width: "100px", height: "auto" }} />
+      </ImageWrapper>
+      <InfoWrapper>
+        <Title>{header}</Title>
+        <Tag>{tag}</Tag>
+        <Description>{description}</Description>
+      </InfoWrapper>
+    </StyledPostCardWrapper>
+  );
 }
 
 export default PostCard;

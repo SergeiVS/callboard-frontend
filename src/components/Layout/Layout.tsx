@@ -40,6 +40,8 @@ import {
 } from "store/redux/signInFormSlice/SignInFormSlice"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { IconButton } from "@mui/material"
+import MyPosts from "pages/MyPosts/MyPosts"
+
 
 function Layout({ children }: LayoutProps) {
   const navigate = useNavigate()
@@ -153,6 +155,7 @@ function Layout({ children }: LayoutProps) {
             Create Post
           </Link>
         </NavigationMenu>
+        
       </Main>
       <Footer>
         <p>Legal Stuff</p>

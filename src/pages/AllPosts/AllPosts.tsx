@@ -1,9 +1,13 @@
-import PostCard from "components/PostCard/PostCard";
+
+import MyPosts from "pages/MyPosts/MyPosts";
 
 function AllPosts () {
 
     return(
-        <></>
+        <>
+        <MyPosts/>
+        
+        </>
     )
 }
 

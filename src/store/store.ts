@@ -3,6 +3,7 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit"
 
 import { signInFormSlice } from "./redux/signInFormSlice/SignInFormSlice"
 import { alertSlice } from "./redux/alertSlice/AlertSlice"
+import postsReducer from "../store/redux/postsSlice/postsSlice";
 
 const rootReducer = combineSlices(signInFormSlice, alertSlice)
 
@@ -17,6 +18,7 @@ export const makeStore = (preloadedState?: Partial<RootState>) => {
   return store
 }
 
+
 export const store = makeStore()
 
 export type AppStore = typeof store
@@ -29,3 +31,4 @@ export type AppThunk<ThunkReturnType = void> = ThunkAction<
   unknown,
   Action
 >
+
