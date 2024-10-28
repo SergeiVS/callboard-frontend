@@ -108,35 +108,6 @@ function Layout({ children }: LayoutProps) {
             style={({ isActive }) => ({
               textDecoration: isActive ? "underline" : "none",
             })}
-            to={PagesPaths.SIGNIN}
-          >
-            Sign In
-          </Link>
-          <ButtonControl>
-            <Button isRegularButton onClick={goToSignUp}>Sign Up</Button>
-          </ButtonControl>
-        </NavigationContainer>) : (<NavigationContainer>
-          <Link
-            style={({ isActive }) => ({
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.ALLPOSTS}
-          >
-            All Posts
-          </Link>
-          <ButtonControl>
-            <Button isRegularButton onClick={signOut}>Sign Out</Button>
-          </ButtonControl>
-        </NavigationContainer>)}
-        
-      </Header>
-      <Main>
-        {children}
-        <NavigationMenu style={{ display: isLoggedOn ? "flex" : "none" }}>
-          <Link
-            style={({ isActive }) => ({
-              textDecoration: isActive ? "underline" : "none",
-            })}
             to={PagesPaths.MYACCOUNT}
           >
             <IconControl>
@@ -166,7 +137,33 @@ function Layout({ children }: LayoutProps) {
             </IconControl>
             Create Post
           </Link>
-        </NavigationMenu>
+          <ButtonControl>
+            <Button isRegularButton onClick={signOut}>Sign Out</Button>
+          </ButtonControl>
+        </NavigationContainer>) : (<NavigationContainer>
+          <Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.ALLPOSTS}
+          >
+            All Posts
+          </Link>
+          <Link
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to={PagesPaths.SIGNIN}
+          >
+            Sign In
+          </Link>
+          <ButtonControl>
+            <Button isRegularButton onClick={goToSignUp}>Sign Up</Button>
+          </ButtonControl>
+        </NavigationContainer>)}
+      </Header>
+      <Main>
+        {children}
       </Main>
       <Footer>
         <p>Legal Stuff</p>
