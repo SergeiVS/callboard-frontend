@@ -2,10 +2,8 @@ import styled from "@emotion/styled"
 
 import { colors } from "styles/colors"
 
-export const StyledPostContainer = styled.div`
+export const StyledPostCardWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
@@ -13,27 +11,34 @@ export const StyledPostContainer = styled.div`
   background-color: white;
 `;
 
-export const StyledContactInfo = styled.div`
-  border-radius: 8px;
-  padding: 16px;
-  font-size: 1.2em;
-  display: flex;
-  max-width: 30%;
+export const ImageWrapper = styled.div`
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
   margin-right: 16px;
 `;
 
-export const StyledPostCard = styled.div`
-  border-radius: 8px;
-  padding: 16px;
-  max-width: 70%;
+export const InfoWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
-export const StyledHeader = styled.h3`
-  font-size: 1.2em;
-  align-items: center;
+export const Title = styled.h3`
+  font-size: 1.5em;
+  margin: 0 0 8px 0;
 `;
 
-export const StyledDescription = styled.p`
-  padding: 16px;
-  font-size: 1.2em;
+export const Tag = styled.span`
+  background-color: #f3f3f3;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 8px;
+`;
+
+export const Description = styled.p`
+  font-size: 1.1em;
+  margin: 0;
 `;

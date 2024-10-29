@@ -1,4 +1,4 @@
-import { isPending, PayloadAction } from "@reduxjs/toolkit"
+import { isPending } from "@reduxjs/toolkit"
 import axios from "axios"
 import { createAppSlice } from "../../createAppSlice"
 

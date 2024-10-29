@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom"
 
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
-import RadioButton from "components/radioButton/RadioButton"
-import RadioGroupComp from "components/radioGroup/RadioGroupComp"
+import RadioButton from "components/RadioButton/RadioButton"
+import RadioGroupComp from "components/radiogroup/RadioGroupComp"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { signInSelectors } from "store/redux/signInFormSlice/SignInFormSlice"
 import { alertActions } from "store/redux/alertSlice/AlertSlice"
@@ -39,7 +39,7 @@ function CreatePostForm() {
 
   const formik = useFormik({
     initialValues: {
-      userId: { userId },
+      userId: userId,
       subject: "",
       header: "",
       description: "",
@@ -53,6 +53,7 @@ function CreatePostForm() {
       try {
         const response = await axios.post(
           "/api/posts",
+
           {
             userId: userId,
             subject: values.subject,
@@ -60,6 +61,7 @@ function CreatePostForm() {
             description: values.description,
             photoLink: values.photoLink,
           },
+
           {
             headers: {
               "Content-Type": "application/JSON",
@@ -120,16 +122,15 @@ function CreatePostForm() {
           onChange={formik.handleChange}
           error={formik.errors.header}
         />
-      
-          <Input
-            name="description"
-            label="Description..."
-            onChange={formik.handleChange}
-            multiline
-            rows={5}
-            error={formik.errors.description}
-          />
 
+        <Input
+          name="description"
+          label="Description..."
+          onChange={formik.handleChange}
+          multiline
+          rows={5}
+          error={formik.errors.description}
+        />
 
         {/* Кнопка загрузки файлов */}
         <label htmlFor="photo-upload" style={{ display: "inline-block" }}>
@@ -179,3 +180,6 @@ function CreatePostForm() {
   )
 }
 export default CreatePostForm
+// function NewPost(post: any): any {
+//   throw new Error("Function not implemented.")
+// }
