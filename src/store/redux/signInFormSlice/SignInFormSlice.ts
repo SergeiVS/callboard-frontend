@@ -1,4 +1,4 @@
-import { isPending, PayloadAction } from "@reduxjs/toolkit"
+import { isPending } from "@reduxjs/toolkit"
 import axios from "axios"
 import { createAppSlice } from "../../createAppSlice"
 
@@ -96,7 +96,10 @@ export const signInFormSlice = createAppSlice({
     ),
 
     logOut: create.reducer((state: SignInState) => {
-      state = signInInitialState
+      state.error = signInInitialState.error
+      state.isLoggedOn = false
+      state.isPending = false
+      state.user = signInInitialState.user
       localStorage.removeItem("token")
     }),
   }),
