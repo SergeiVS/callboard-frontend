@@ -2,6 +2,7 @@ import PostCard from "components/PostCard/PostCard";
 
 
 import { PostsWrapper, PageWrapper } from "./styles";
+import MyPosts from "pages/MyPosts/MyPosts";
 
 const testCard = {
     
@@ -21,7 +22,7 @@ function AllPosts () {
         <>
         <PageWrapper>
         <PostsWrapper>
-            <PostCard headline={testCard.header} description={testCard.description} contactInfo={testCard.user.name} image={testCard.photoLink} id={undefined}/>
+            < MyPosts/>
         </PostsWrapper>
         </PageWrapper>
         </>

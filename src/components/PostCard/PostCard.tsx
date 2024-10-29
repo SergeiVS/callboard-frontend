@@ -8,8 +8,7 @@ import {
   Description,
   Tag,
 } from "./styles";
-
-function PostCard({ image, header, description, contactInfo }: PostCardProps) {
+export function PostCard({ image, header, description, contactInfo }: PostCardProps) {
   return (
     <StyledPostCardWrapper>
       <ImageWrapper>

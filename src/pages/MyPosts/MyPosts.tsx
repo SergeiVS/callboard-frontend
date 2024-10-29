@@ -1,40 +1,27 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import axios from "axios";
 import PostCard from "components/PostCard/PostCard";
-import postsReducer, { setUserPosts } from "../../store/redux/postsSlice/postsSlice";
-import { RootState } from "../../store/store";
-import { PostCardProps } from "components/PostCard/types";
-import { JSX } from "react/jsx-runtime";
+import { useAppSelector } from "store/hooks";
+import { PageWrapper } from "./styles";
+import { PostsWrapper } from "pages/AllPosts/styles";
+import postsSlice from "store/redux/postsSlice/postsSlice";
+
 
 export function MyPosts() {
-  const dispatch = useAppDispatch();
-  const posts = useAppSelector((state: RootState) => state.posts?.userPosts || []);
-
-  useEffect(() => {
-    const fetchMyPosts = async () => {
-      try {
-        const response = await axios.get("/api/posts", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
-        dispatch(setUserPosts(response.data));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchMyPosts();
-  }, [dispatch]);
-
+  const userPosts = useAppSelector((state) => state.posts.userPosts);
+  console.log("User Posts:", userPosts);
   return (
-    <div>
-      {posts.map((post: JSX.IntrinsicAttributes & PostCardProps, index: React.Key | null | undefined) => (
-        <PostCard key={index} {...post} />
+
+    <PageWrapper>
+      <PostsWrapper>
+      {userPosts.map((posts) => (
+        <PostCard
+          key={posts.id}
+          header={posts.header}
+          description={posts.description}
+          image={posts.photoLink} contactInfo={""}    />
       ))}
-    </div>
+      </PostsWrapper>
+    </PageWrapper>
+     
   );
 }
-
-export default MyPosts;
+export default MyPosts

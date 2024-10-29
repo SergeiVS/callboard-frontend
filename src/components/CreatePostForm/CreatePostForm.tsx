@@ -18,8 +18,6 @@ import {
   ButtonWraper,
 } from "components/CreatePostForm/styles"
 import { PagesPaths } from "components/Layout/types"
-import { PostCardProps } from "components/PostCard/types"
-import { setUserPosts } from "store/redux/postsSlice/postsSlice"
 
 function CreatePostForm() {
   const dispatch = useAppDispatch()
@@ -41,7 +39,7 @@ function CreatePostForm() {
 
   const formik = useFormik({
     initialValues: {
-      userId: { userId },
+      userId: userId,
       subject: "",
       header: "",
       description: "",
@@ -55,6 +53,7 @@ function CreatePostForm() {
       try {
         const response = await axios.post(
           "/api/posts",
+
           {
             userId: userId,
             subject: values.subject,
@@ -62,6 +61,7 @@ function CreatePostForm() {
             description: values.description,
             photoLink: values.photoLink,
           },
+
           {
             headers: {
               "Content-Type": "application/JSON",
@@ -180,3 +180,6 @@ function CreatePostForm() {
   )
 }
 export default CreatePostForm
+// function NewPost(post: any): any {
+//   throw new Error("Function not implemented.")
+// }
