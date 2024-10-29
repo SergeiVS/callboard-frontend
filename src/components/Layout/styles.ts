@@ -82,7 +82,7 @@ export const Link = styled(NavLink)`
 `
 
 export const ButtonControl = styled.div`
-width: 100px;
+width: fit-content;
 `
 
 export const Main = styled.main`
