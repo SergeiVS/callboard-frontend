@@ -1,6 +1,6 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { useState } from "react"
+import { MouseEventHandler, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
@@ -79,7 +79,6 @@ function CreatePostForm() {
         helpers.resetForm()
         navigate(PagesPaths.MYPOSTS)
       } catch (e: any) {
-        console.log(e)
         const error = e.response.data
 
         dispatch(
@@ -93,16 +92,40 @@ function CreatePostForm() {
     },
   })
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const selectedPhoto = Array.from(event.target.files)
       setFile(selectedPhoto[0])
       const names = selectedPhoto[0].name
       setFileName(names)
+      try{
+        const response = await axios.post("/api/files", file,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          },
+        )
+        formik.setFieldValue("photoLink", response.data.message)
+        console.log(formik.values.photoLink)
+      }catch(e:any){
+        const error = e.response.data
+    
+        dispatch(
+          alertActions.setAlertStateOpen({
+            isOpen: true,
+            severity: "error",
+            children: error.errorMessage,
+          }),
+        )
+      }
+
     }
   }
-  const handleUploadClick = () => {
+  const handleUploadClick =  () => {
     document.getElementById("photo-upload")?.click()
+    
   }
 
   return (
