@@ -81,6 +81,10 @@ export const Link = styled(NavLink)`
   text-decoration: none;
 `
 
+export const ButtonControl = styled.div`
+width: fit-content;
+`
+
 export const Main = styled.main`
   display: flex;
   flex: 1;

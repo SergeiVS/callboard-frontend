@@ -96,7 +96,10 @@ export const signInFormSlice = createAppSlice({
     ),
 
     logOut: create.reducer((state: SignInState) => {
-      state = signInInitialState
+      state.error = signInInitialState.error
+      state.isLoggedOn = false
+      state.isPending = false
+      state.user = signInInitialState.user
       localStorage.removeItem("token")
     }),
   }),
