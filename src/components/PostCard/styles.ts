@@ -1,5 +1,7 @@
 import styled from "@emotion/styled"
 
+import { colors } from "styles/colors"
+
 export const StyledPostContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -8,6 +10,7 @@ export const StyledPostContainer = styled.div`
   border-radius: 8px;
   padding: 16px;
   max-width: 800px;
+  background-color: white;
 `;
 
 export const StyledContactInfo = styled.div`

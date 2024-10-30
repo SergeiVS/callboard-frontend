@@ -7,15 +7,15 @@
 [ 
     {
         "postId": 1
-        "subject": "Нужна помощь",
+        "subject": { "name": "Нужна помощь"},
         "header": "Требуется помощь с покупкой продуктов",
         "user": {"name": "Иван Иванов", "email": "ivanov@example.com"},
         "description": "Помогите купить продукты для пожилого человека",
         "photoLink": "link_to_photo"
     },
     {
-        "postId": 2
-        "subject": "Предлагаю помощь",
+        "postId": 2,
+        "subject": { "name": "Предлагаю помощь"},
         "header": "Помощь в доставке",
         "user": {"name": "Петр Петров", "email": "petrov@example.com"},
         "description": "Могу доставить продукты",
