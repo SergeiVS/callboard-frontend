@@ -2,7 +2,7 @@ import { StyledButton } from "./styles"
 import { ButtonProps } from "./types"
 import { variants } from "./types"
 
-function Button({
+export default function Button({
   disabled = false,
   onClick,
   children,
@@ -31,4 +31,3 @@ function Button({
   )
 }
 
-export default Button

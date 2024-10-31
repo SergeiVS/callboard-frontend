@@ -4,9 +4,9 @@ import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-import Input from "components/Input/input"
-import Button from "components/Button/Button"
-import RadioButton from "components/radioButton/RadioButton"
+import Input from "../Input/input"
+import Button from '../Button/Button'
+import RadioButton from "../radioButton/RadioButton"
 import RadioGroupComp from "../radiogroup/RadioGroupComp"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { signInSelectors } from "store/redux/signInFormSlice/SignInFormSlice"
