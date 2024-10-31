@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom"
 
 import Input from "../Input/input"
 import Button from '../Button/Button'
-import RadioButton from "../radioButton/RadioButton"
-import RadioGroupComp from "../radiogroup/RadioGroupComp"
+import RadioButton from "../RadioButton/RadioButton"
+import RadioGroupComp from "../Radiogroup/RadioGroupComp"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { signInSelectors } from "store/redux/signInFormSlice/SignInFormSlice"
 import { alertActions } from "store/redux/alertSlice/AlertSlice"
