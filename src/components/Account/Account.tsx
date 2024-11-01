@@ -26,12 +26,14 @@ function Account() {
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
 
+const user = useAppSelector(signInSelectors.user)
+
   let userInitialData: UserUpdateRequest = {
-    userId: useAppSelector(signInSelectors.user).id,
-    firstName: useAppSelector(signInSelectors.user).firstName,
-    lastName: useAppSelector(signInSelectors.user).lastName,
-    email: useAppSelector(signInSelectors.user).email,
-    phoneNumber: useAppSelector(signInSelectors.user).phoneNumber,
+    userId: user.id,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
   }
 
   const onEditButton = () => {
