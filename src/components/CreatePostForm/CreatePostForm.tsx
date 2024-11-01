@@ -1,13 +1,15 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { useState } from "react"
+import { MouseEventHandler, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
+
 import RadioButton from "components/RadioButton/RadioButton"
 import RadioGroupComp from "../Radiogroup/RadioGroupComp"
+
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { signInSelectors } from "store/redux/signInFormSlice/SignInFormSlice"
 import { alertActions } from "store/redux/alertSlice/AlertSlice"
@@ -22,8 +24,8 @@ import { PagesPaths } from "components/Layout/types"
 function CreatePostForm() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [file, setFiles] = useState<File[]>([]) //
-  const [fileNames, setFileNames] = useState<string[]>([])
+  const [file, setFile] = useState<File>() //
+  const [fileName, setFileName] = useState<string>()
 
   const validationSchema = Yup.object().shape({
     header: Yup.string()
@@ -79,7 +81,6 @@ function CreatePostForm() {
         helpers.resetForm()
         navigate(PagesPaths.MYPOSTS)
       } catch (e: any) {
-        console.log(e)
         const error = e.response.data
 
         dispatch(
@@ -93,16 +94,40 @@ function CreatePostForm() {
     },
   })
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const selectedPhoto = Array.from(event.target.files)
-      setFiles(selectedPhoto)
-      const names = selectedPhoto.map(file => file.name)
-      setFileNames(names)
+      setFile(selectedPhoto[0])
+      const names = selectedPhoto[0].name
+      setFileName(names)
+      try{
+        const response = await axios.post("/api/files", file,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          },
+        )
+        formik.setFieldValue("photoLink", response.data.message)
+        console.log(formik.values.photoLink)
+      }catch(e:any){
+        const error = e.response.data
+    
+        dispatch(
+          alertActions.setAlertStateOpen({
+            isOpen: true,
+            severity: "error",
+            children: error.errorMessage,
+          }),
+        )
+      }
+
     }
   }
-  const handleUploadClick = () => {
+  const handleUploadClick =  () => {
     document.getElementById("photo-upload")?.click()
+    
   }
 
   return (
@@ -120,16 +145,15 @@ function CreatePostForm() {
           onChange={formik.handleChange}
           error={formik.errors.header}
         />
-      
-          <Input
-            name="description"
-            label="Description..."
-            onChange={formik.handleChange}
-            multiline
-            rows={5}
-            error={formik.errors.description}
-          />
 
+        <Input
+          name="description"
+          label="Description..."
+          onChange={formik.handleChange}
+          multiline
+          rows={5}
+          error={formik.errors.description}
+        />
 
         {/* Кнопка загрузки файлов */}
         <label htmlFor="photo-upload" style={{ display: "inline-block" }}>
@@ -148,21 +172,16 @@ function CreatePostForm() {
             onChange={handleFileChange}
             style={{ display: "none" }}
             accept="image/*"
-            multiple
-            value={formik.values.photoLink}
+            value={file?.name}
           />
           {}
         </label>
 
         {/* Отображение имен загруженных файлов*/}
-        {fileNames.length > 0 && (
+        {fileName !== undefined && (
           <div style={{ padding: "10px" }}>
             <strong>Uploaded Photo:</strong>
-            <ul>
-              {fileNames.map((fileName, index) => (
-                <li key={index}>{fileName}</li>
-              ))}
-            </ul>
+            <ul>{fileName}</ul>
           </div>
         )}
 
