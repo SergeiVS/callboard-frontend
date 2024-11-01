@@ -11,6 +11,7 @@ import {
   ButtonContainer,
   ButtonsWrapper,
 } from "./styles"
+import { UserUpdateRequest } from "./types"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { signInSelectors } from "store/redux/SignInFormSlice/SignInFormSlice"
 import { alertActions } from "store/redux/AlertSlice/AlertSlice"
@@ -24,6 +25,13 @@ function Account() {
   const [isInputDisabled, setInputDisabled] = useState(true)
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
+  const userInitialData: UserUpdateRequest = {
+    userId: useAppSelector(signInSelectors.user).id,
+    firstName: useAppSelector(signInSelectors.user).firstName,
+    lastName: useAppSelector(signInSelectors.user).lastName,
+    email: useAppSelector(signInSelectors.user).email,
+    phoneNumber: useAppSelector(signInSelectors.user).phoneNumber,
+  }
 
   const onEditButton = () => {
     setInputDisabled(false)
@@ -41,18 +49,12 @@ function Account() {
   })
 
   const formik = useFormik({
-    initialValues: {
-      userId: useAppSelector(signInSelectors.user).id,
-      firstName: useAppSelector(signInSelectors.user).firstName,
-      lastName: useAppSelector(signInSelectors.user).lastName,
-      email: useAppSelector(signInSelectors.user).email,
-      phoneNumber: useAppSelector(signInSelectors.user).phoneNumber,
-    },
+    initialValues: userInitialData,
 
     validationSchema: validationSchema,
     validateOnChange: false,
 
-    onSubmit: async (values) => {
+    onSubmit: async values => {
       try {
         const response = await axios.put(
           "/api/users/update",
