@@ -52,7 +52,7 @@ function Account() {
       .required("Firstname could not be empty"),
   })
 
-  const formik = useFormik({
+  const formik = useFormik<UserUpdateRequest>({
     initialValues: userInitialData,
 
     validationSchema: validationSchema,
