@@ -5,14 +5,12 @@ import Layout from "components/Layout/Layout"
 import { PagesPaths } from "components/Layout/types"
 import Home from "pages/Home/Home"
 import { useAppDispatch, useAppSelector } from "store/hooks"
-<<<<<<< HEAD
-import { signInSelectors, signInActions } from "store/redux/SignInFormSlice/SignInFormSlice"
-=======
+
 import {
   signInSelectors,
   signInActions,
 } from "./store/redux/SignInFormSlice/SignInFormSlice"
->>>>>>> d7f8f5b7543003277ed81fd78e1e7653dae9b37b
+
 import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
 import CreatePost from "pages/CreatePost/CreatePost"
