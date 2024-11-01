@@ -1,6 +1,12 @@
 import { FormControl } from "@mui/material"
+<<<<<<< HEAD:src/components/RadioGroupComp/RadioGroupComp.tsx
 import { RadioGroupProps } from "components/RadioGroupComp/types" 
 import { StyledRadioGroup } from "components/RadioGroupComp/Styles" 
+=======
+
+import { RadioGroupProps } from "components/Radiogroup/types" 
+import { StyledRadioGroup } from "components/Radiogroup/Styles" 
+>>>>>>> d7f8f5b7543003277ed81fd78e1e7653dae9b37b:src/components/radiogroup/RadioGroupComp.tsx
 
 function RadioGroupComp({ row, name, defaultValue, children, onCange}: RadioGroupProps) {
   return (
