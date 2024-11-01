@@ -26,13 +26,13 @@ function Account() {
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
 
-
-  let userId: number = useAppSelector(signInSelectors.user).id
-  let firstName: string = useAppSelector(signInSelectors.user).firstName
-  let lastName: string = useAppSelector(signInSelectors.user).lastName
-  let email: string = useAppSelector(signInSelectors.user).email
-  let phoneNumber: string = useAppSelector(signInSelectors.user).phoneNumber
- 
+  let userInitialData: UserUpdateRequest = {
+    userId: useAppSelector(signInSelectors.user).id,
+    firstName: useAppSelector(signInSelectors.user).firstName,
+    lastName: useAppSelector(signInSelectors.user).lastName,
+    email: useAppSelector(signInSelectors.user).email,
+    phoneNumber: useAppSelector(signInSelectors.user).phoneNumber,
+  }
 
   const onEditButton = () => {
     setInputDisabled(false)
@@ -50,13 +50,7 @@ function Account() {
   })
 
   const formik = useFormik({
-    initialValues: {
-      userId: userId,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      phoneNumber: phoneNumber,
-    },
+    initialValues: userInitialData,
 
     validationSchema: validationSchema,
     validateOnChange: false,
