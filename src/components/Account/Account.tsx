@@ -1,6 +1,5 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { MouseEventHandler, ReactNode, useEffect } from "react"
 
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
@@ -13,15 +12,12 @@ import {
   ButtonsWrapper,
 } from "./styles"
 import { useAppDispatch, useAppSelector } from "store/hooks"
-import {
-  signInActions,
-  signInSelectors,
-} from "store/redux/SignInFormSlice/SignInFormSlice"
+import { signInSelectors } from "store/redux/SignInFormSlice/SignInFormSlice"
 import { alertActions } from "store/redux/AlertSlice/AlertSlice"
-import { alertSliceState } from "store/redux/AlertSlice/types"
 import axios from "axios"
 import { useState } from "react"
 import { InputTypes } from "components/Input/types"
+import { AlertSliceState } from "store/redux/alertSlice/types"
 
 function Account() {
   const dispatch = useAppDispatch()
@@ -56,7 +52,7 @@ function Account() {
     validationSchema: validationSchema,
     validateOnChange: false,
 
-    onSubmit: async (values, helpers) => {
+    onSubmit: async (values) => {
       try {
         const response = await axios.put(
           "/api/users/update",
@@ -74,7 +70,7 @@ function Account() {
             },
           },
         )
-        let alertSate: alertSliceState = {
+        let alertSate: AlertSliceState = {
           isOpen: true,
           severity: "info",
           children: response.data.message,
@@ -87,7 +83,7 @@ function Account() {
         getNewValues()
       } catch (e: any) {
         const error = e.response.data
-        let alertSate: alertSliceState = {
+        let alertSate: AlertSliceState = {
           isOpen: true,
           severity: "error",
           children: error.errorMessage,
