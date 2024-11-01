@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom"
 import Input from "components/Input/input"
 import Button from "components/Button/Button"
 import RadioButton from "components/RadioButton/RadioButton"
-import RadioGroupComp from "../Radiogroup/RadioGroupComp"
+import RadioGroupComp from "../RadioGroupComp/RadioGroupComp"
 import { useAppDispatch, useAppSelector } from "store/hooks"
-import { signInSelectors } from "store/redux/signInFormSlice/SignInFormSlice"
-import { alertActions } from "store/redux/alertSlice/AlertSlice"
+import { signInSelectors } from "store/redux/SignInFormSlice/SignInFormSlice"
+import { alertActions } from "store/redux/AlertSlice/AlertSlice"
 
 import {
   StyledLable,

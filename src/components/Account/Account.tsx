@@ -16,9 +16,9 @@ import { useAppDispatch, useAppSelector } from "store/hooks"
 import {
   signInActions,
   signInSelectors,
-} from "store/redux/signInFormSlice/SignInFormSlice"
-import { alertActions } from "store/redux/alertSlice/AlertSlice"
-import { alertSliceState } from "store/redux/alertSlice/types"
+} from "store/redux/SignInFormSlice/SignInFormSlice"
+import { alertActions } from "store/redux/AlertSlice/AlertSlice"
+import { alertSliceState } from "store/redux/AlertSlice/types"
 import axios from "axios"
 import { useState } from "react"
 import { InputTypes } from "components/Input/types"

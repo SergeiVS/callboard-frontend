@@ -1,8 +1,8 @@
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
 
-import { signInFormSlice } from "./redux/signInFormSlice/SignInFormSlice"
-import { alertSlice } from "./redux/alertSlice/AlertSlice"
+import { signInFormSlice } from "./redux/SignInFormSlice/SignInFormSlice"
+import { alertSlice } from "./redux/AlertSlice/AlertSlice"
 
 const rootReducer = combineSlices(signInFormSlice, alertSlice)
 

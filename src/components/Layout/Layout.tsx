@@ -31,11 +31,11 @@ import logo from "assets/logo.png"
 
 
 import CloseIcon from "@mui/icons-material/Close"
-import { alertSelectors, alertActions } from "store/redux/alertSlice/AlertSlice"
+import { alertSelectors, alertActions } from "store/redux/AlertSlice/AlertSlice"
 import {
   signInActions,
   signInSelectors,
-} from "store/redux/signInFormSlice/SignInFormSlice"
+} from "store/redux/SignInFormSlice/SignInFormSlice"
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { IconButton } from "@mui/material"
 

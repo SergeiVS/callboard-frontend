@@ -1,0 +1,1 @@
+export declare const StyledRadioButton: import("@emotion/styled").StyledComponent<import("@mui/material").FormControlLabelProps & import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, {}, {}>;
