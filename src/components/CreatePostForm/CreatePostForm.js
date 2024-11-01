@@ -27,7 +27,8 @@ function CreatePostForm() {
             .min(5, "Description should be longer as 5 symbols")
             .max(200, "Description should not be longer as 200 symbols"),
     });
-    const userId = useAppSelector(signInSelectors.user).id;
+    const user = useAppSelector(signInSelectors.user);
+    const userId = user.id;
     const formik = useFormik({
         initialValues: {
             userId: { userId },

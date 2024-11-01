@@ -1,6 +1,6 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { MouseEventHandler, useState } from "react"
+import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
@@ -19,6 +19,7 @@ import {
   ButtonWraper,
 } from "../../components/CreatePostForm/styles"
 import { PagesPaths } from "../../components/Layout/types"
+import { User } from "../../store/redux/SignInFormSlice/types"
 
 function CreatePostForm() {
   const dispatch = useAppDispatch()
@@ -36,7 +37,8 @@ function CreatePostForm() {
       .max(200, "Description should not be longer as 200 symbols"),
   })
 
-  const userId: number = useAppSelector(signInSelectors.user).id
+  const user: User = useAppSelector(signInSelectors.user)
+  const userId: number = user.id
 
   const formik = useFormik({
     initialValues: {
