@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "store/hooks"
 import {
   signInSelectors,
   signInActions,
-} from "./store/redux/SignInFormSlice/SignInFormSlice"
+} from "store/redux/SignInFormSlice/SignInFormSlice"
 
 import SignIn from "pages/SignIn/SignIn"
 import SignUp from "pages/SignUp/SignUp"
