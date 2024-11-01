@@ -19,6 +19,7 @@ import { signInSelectors } from "../../store/redux/SignInFormSlice/SignInFormSli
 import { alertActions } from "../../store/redux/AlertSlice/AlertSlice"
 import { InputTypes } from "../../components/Input/types"
 import { AlertSliceState } from "../../store/redux/AlertSlice/types"
+import { User } from "store/redux/SignInFormSlice/types"
 
 function Account() {
   const dispatch = useAppDispatch()
@@ -26,7 +27,7 @@ function Account() {
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
 
-  const user = useAppSelector(signInSelectors.user)
+  const user: User = useAppSelector(signInSelectors.user)
 
   let userInitialData: UserUpdateRequest = {
     userId: user.id,
