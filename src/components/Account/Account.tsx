@@ -13,8 +13,8 @@ import {
 } from "./styles"
 import { UserUpdateRequest } from "./types"
 import { useAppDispatch, useAppSelector } from "store/hooks"
-import { signInSelectors } from "store/redux/SignInFormSlice/SignInFormSlice"
-import { alertActions } from "store/redux/AlertSlice/AlertSlice"
+import { signInSelectors } from "../../store/redux/SignInFormSlice/SignInFormSlice"
+import { alertActions } from "../../store/redux/AlertSlice/AlertSlice"
 import axios from "axios"
 import { useState } from "react"
 import { InputTypes } from "components/Input/types"
@@ -25,13 +25,14 @@ function Account() {
   const [isInputDisabled, setInputDisabled] = useState(true)
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
-  const userInitialData: UserUpdateRequest = {
-    userId: useAppSelector(signInSelectors.user).id,
-    firstName: useAppSelector(signInSelectors.user).firstName,
-    lastName: useAppSelector(signInSelectors.user).lastName,
-    email: useAppSelector(signInSelectors.user).email,
-    phoneNumber: useAppSelector(signInSelectors.user).phoneNumber,
-  }
+
+
+  let userId: number = useAppSelector(signInSelectors.user).id
+  let firstName: string = useAppSelector(signInSelectors.user).firstName
+  let lastName: string = useAppSelector(signInSelectors.user).lastName
+  let email: string = useAppSelector(signInSelectors.user).email
+  let phoneNumber: string = useAppSelector(signInSelectors.user).phoneNumber
+ 
 
   const onEditButton = () => {
     setInputDisabled(false)
@@ -49,7 +50,13 @@ function Account() {
   })
 
   const formik = useFormik({
-    initialValues: userInitialData,
+    initialValues: {
+      userId: userId,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNumber: phoneNumber,
+    },
 
     validationSchema: validationSchema,
     validateOnChange: false,
