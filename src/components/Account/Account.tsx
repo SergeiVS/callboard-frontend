@@ -19,7 +19,7 @@ import { signInSelectors } from "../../store/redux/SignInFormSlice/SignInFormSli
 import { alertActions } from "../../store/redux/AlertSlice/AlertSlice"
 import { InputTypes } from "../../components/Input/types"
 import { AlertSliceState } from "../../store/redux/AlertSlice/types"
-import { User } from "store/redux/SignInFormSlice/types"
+import { User } from "../../store/redux/SignInFormSlice/types"
 
 function Account() {
   const dispatch = useAppDispatch()
