@@ -90,7 +90,14 @@ export const signInFormSlice = createAppSlice({
           state.error = action.error.message
           state.isLoggedOn = false
           state.isPending = false
-          state.user = signInInitialState.user
+          state.user = {
+            id: signInInitialState.user.id,
+            email: signInInitialState.user.email,
+            firstName: signInInitialState.user.firstName,
+            lastName: signInInitialState.user.lastName,
+            phoneNumber: signInInitialState.user.phoneNumber,
+            roles: signInInitialState.user.roles,
+          }
         },
       },
     ),
@@ -99,10 +106,18 @@ export const signInFormSlice = createAppSlice({
       state.error = signInInitialState.error
       state.isLoggedOn = false
       state.isPending = false
-      state.user = signInInitialState.user
+      state.user = {
+        id: signInInitialState.user.id,
+        email: signInInitialState.user.email,
+        firstName: signInInitialState.user.firstName,
+        lastName: signInInitialState.user.lastName,
+        phoneNumber: signInInitialState.user.phoneNumber,
+        roles: signInInitialState.user.roles,
+      }
       localStorage.removeItem("token")
     }),
   }),
+
   selectors: {
     user: (state: SignInState) => {
       return state.user
