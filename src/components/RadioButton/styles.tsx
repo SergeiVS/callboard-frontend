@@ -1,6 +1,6 @@
 import { styled, FormControlLabel } from "@mui/material"
 
-import { colors } from "styles/colors"
+import { colors } from "../../styles/colors"
 
 export const StyledRadioButton = styled(FormControlLabel)`
   & .MuiRadio-colorPrimary {

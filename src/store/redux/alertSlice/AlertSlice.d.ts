@@ -1,30 +1,30 @@
-import { alertSliceState } from "./types";
-export declare const alertSlice: import("@reduxjs/toolkit").Slice<alertSliceState, {
-    setAlertStateOpen: import("@reduxjs/toolkit").CaseReducer<alertSliceState, {
-        payload: alertSliceState;
+import { AlertSliceState } from "./types";
+export declare const alertSlice: import("@reduxjs/toolkit").Slice<AlertSliceState, {
+    setAlertStateOpen: import("@reduxjs/toolkit").CaseReducer<AlertSliceState, {
+        payload: AlertSliceState;
         type: string;
     }> & {
         _reducerDefinitionType: import("@reduxjs/toolkit").ReducerType.reducer;
     };
-    closeAlert: import("@reduxjs/toolkit").CaseReducer<alertSliceState, {
+    closeAlert: import("@reduxjs/toolkit").CaseReducer<AlertSliceState, {
         payload: void;
         type: string;
     }> & {
         _reducerDefinitionType: import("@reduxjs/toolkit").ReducerType.reducer;
     };
 }, "ALERT", "ALERT", {
-    isOpen: (state: alertSliceState) => boolean;
-    severity: (state: alertSliceState) => "info" | "success" | "error" | "warning" | undefined;
-    cildren: (state: alertSliceState) => import("react").ReactNode;
+    isOpen: (state: AlertSliceState) => boolean;
+    severity: (state: AlertSliceState) => "info" | "success" | "error" | "warning" | undefined;
+    cildren: (state: AlertSliceState) => import("react").ReactNode;
 }>;
 export declare const alertActions: import("@reduxjs/toolkit").CaseReducerActions<{
-    setAlertStateOpen: import("@reduxjs/toolkit").CaseReducer<alertSliceState, {
-        payload: alertSliceState;
+    setAlertStateOpen: import("@reduxjs/toolkit").CaseReducer<AlertSliceState, {
+        payload: AlertSliceState;
         type: string;
     }> & {
         _reducerDefinitionType: import("@reduxjs/toolkit").ReducerType.reducer;
     };
-    closeAlert: import("@reduxjs/toolkit").CaseReducer<alertSliceState, {
+    closeAlert: import("@reduxjs/toolkit").CaseReducer<AlertSliceState, {
         payload: void;
         type: string;
     }> & {
@@ -33,18 +33,18 @@ export declare const alertActions: import("@reduxjs/toolkit").CaseReducerActions
 }, "ALERT">;
 export declare const alertSelectors: {
     isOpen: import("reselect").Selector<{
-        ALERT: alertSliceState;
+        ALERT: AlertSliceState;
     }, boolean, []> & {
-        unwrapped: (state: alertSliceState) => boolean;
+        unwrapped: (state: AlertSliceState) => boolean;
     };
     severity: import("reselect").Selector<{
-        ALERT: alertSliceState;
+        ALERT: AlertSliceState;
     }, "info" | "success" | "error" | "warning" | undefined, []> & {
-        unwrapped: (state: alertSliceState) => "info" | "success" | "error" | "warning" | undefined;
+        unwrapped: (state: AlertSliceState) => "info" | "success" | "error" | "warning" | undefined;
     };
     cildren: import("reselect").Selector<{
-        ALERT: alertSliceState;
+        ALERT: AlertSliceState;
     }, import("react").ReactNode, []> & {
-        unwrapped: (state: alertSliceState) => import("react").ReactNode;
+        unwrapped: (state: AlertSliceState) => import("react").ReactNode;
     };
 };

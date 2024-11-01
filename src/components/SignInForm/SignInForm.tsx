@@ -2,16 +2,16 @@ import * as Yup from "yup"
 import { useFormik } from "formik"
 import { useNavigate } from "react-router-dom"
 
-import Input from "components/Input/input"
-import Button from "components/Button/Button"
+import Input from "../../components/Input/input"
+import Button from "../../components/Button/Button"
 
 import { StyledLable, ButtonContainer, StyledForm } from "./styles"
 import { LogIn } from "./types"
-import { PagesPaths } from "components/Layout/types"
-import { InputTypes } from "components/Input/types"
-import { useAppDispatch, useAppSelector } from "store/hooks"
-import { signInActions } from "store/redux/SignInFormSlice/SignInFormSlice"
-import { alertActions } from "store/redux/AlertSlice/AlertSlice"
+import { PagesPaths } from "../../components/Layout/types"
+import { InputTypes } from "../../components/Input/types"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
+import { signInActions } from "../../store/redux/SignInFormSlice/SignInFormSlice"
+import { alertActions } from "../../store/redux/AlertSlice/AlertSlice"
 
 function SignInForm() {
   const dispatch = useAppDispatch()

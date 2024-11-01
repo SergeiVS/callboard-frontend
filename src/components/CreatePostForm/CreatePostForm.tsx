@@ -4,21 +4,21 @@ import { MouseEventHandler, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-import Input from "components/Input/input"
-import Button from "components/Button/Button"
-
-import RadioButton from "components/RadioButton/RadioButton"
+import Input from "../../components/Input/input"
+import Button from "../../components/Button/Button"
+import RadioButton from "../../components/RadioButton/RadioButton"
 import RadioGroupComp from "../RadioGroupComp/RadioGroupComp"
-import { useAppDispatch, useAppSelector } from "store/hooks"
-import { signInSelectors } from "store/redux/SignInFormSlice/SignInFormSlice"
-import { alertActions } from "store/redux/AlertSlice/AlertSlice"
+
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
+import { signInSelectors } from "../../store/redux/SignInFormSlice/SignInFormSlice"
+import { alertActions } from "../../store/redux/AlertSlice/AlertSlice"
 
 import {
   StyledLable,
   StyledPostCard,
   ButtonWraper,
-} from "components/CreatePostForm/styles"
-import { PagesPaths } from "components/Layout/types"
+} from "../../components/CreatePostForm/styles"
+import { PagesPaths } from "../../components/Layout/types"
 
 function CreatePostForm() {
   const dispatch = useAppDispatch()
@@ -93,26 +93,26 @@ function CreatePostForm() {
     },
   })
 
-  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     if (event.target.files) {
       const selectedPhoto = Array.from(event.target.files)
       setFile(selectedPhoto[0])
       const names = selectedPhoto[0].name
       setFileName(names)
-      try{
-        const response = await axios.post("/api/files", file,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
+      try {
+        const response = await axios.post("/api/files", file, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        )
+        })
         formik.setFieldValue("photoLink", response.data.message)
         console.log(formik.values.photoLink)
-      }catch(e:any){
+      } catch (e: any) {
         const error = e.response.data
-    
+
         dispatch(
           alertActions.setAlertStateOpen({
             isOpen: true,
@@ -121,12 +121,10 @@ function CreatePostForm() {
           }),
         )
       }
-
     }
   }
-  const handleUploadClick =  () => {
+  const handleUploadClick = () => {
     document.getElementById("photo-upload")?.click()
-    
   }
 
   return (

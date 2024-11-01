@@ -1,21 +1,29 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Input from "components/Input/input";
-import Button from "components/Button/Button";
 import EditIcon from "@mui/icons-material/Edit";
-import { StyledAccount, StyledLable, ButtonContainer, ButtonsWrapper, } from "./styles";
-import { useAppDispatch, useAppSelector } from "store/hooks";
-import { signInSelectors, } from "store/redux/SignInFormSlice/SignInFormSlice";
-import { alertActions } from "store/redux/AlertSlice/AlertSlice";
 import axios from "axios";
 import { useState } from "react";
-import { InputTypes } from "components/Input/types";
+import Input from "../../components/Input/input";
+import Button from "../../components/Button/Button";
+import { StyledAccount, StyledLable, ButtonContainer, ButtonsWrapper, } from "./styles";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { signInSelectors } from "../../store/redux/SignInFormSlice/SignInFormSlice";
+import { alertActions } from "../../store/redux/AlertSlice/AlertSlice";
+import { InputTypes } from "../../components/Input/types";
 function Account() {
     const dispatch = useAppDispatch();
     const [isInputDisabled, setInputDisabled] = useState(true);
     const [isSendButtonDisabled, setSendButtonDisabled] = useState(true);
     const [isEditButtonDisabled, setEditButtonDisabled] = useState(false);
+    const user = useAppSelector(signInSelectors.user);
+    let userInitialData = {
+        userId: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+    };
     const onEditButton = () => {
         setInputDisabled(false);
         setSendButtonDisabled(false);
@@ -30,16 +38,10 @@ function Account() {
             .required("Firstname could not be empty"),
     });
     const formik = useFormik({
-        initialValues: {
-            userId: useAppSelector(signInSelectors.user).id,
-            firstName: useAppSelector(signInSelectors.user).firstName,
-            lastName: useAppSelector(signInSelectors.user).lastName,
-            email: useAppSelector(signInSelectors.user).email,
-            phoneNumber: useAppSelector(signInSelectors.user).phoneNumber,
-        },
+        initialValues: userInitialData,
         validationSchema: validationSchema,
         validateOnChange: false,
-        onSubmit: async (values, helpers) => {
+        onSubmit: async (values) => {
             try {
                 const response = await axios.put("/api/users/update", {
                     userId: values.userId,

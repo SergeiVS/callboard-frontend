@@ -1,8 +1,8 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import { PageWrapper, AboutUs, AboutUsTitle, AboutUsText, Picture, ButtonContainer, PictureControl, } from "./styles";
-import Button from "components/Button/Button";
-import picture from "assets/aboutusimage.jpg";
+import picture from "../../assets/aboutusimage.jpg";
 function Home() {
     const navigate = useNavigate();
     const goToSignIN = () => {

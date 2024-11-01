@@ -1,9 +1,11 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-
-import Input from "components/Input/input"
-import Button from "components/Button/Button"
 import EditIcon from "@mui/icons-material/Edit"
+import axios from "axios"
+import { useState } from "react"
+
+import Input from "../../components/Input/input"
+import Button from "../../components/Button/Button"
 
 import {
   StyledAccount,
@@ -12,13 +14,11 @@ import {
   ButtonsWrapper,
 } from "./styles"
 import { UserUpdateRequest } from "./types"
-import { useAppDispatch, useAppSelector } from "store/hooks"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
 import { signInSelectors } from "../../store/redux/SignInFormSlice/SignInFormSlice"
 import { alertActions } from "../../store/redux/AlertSlice/AlertSlice"
-import axios from "axios"
-import { useState } from "react"
-import { InputTypes } from "components/Input/types"
-import { AlertSliceState } from "store/redux/alertSlice/types"
+import { InputTypes } from "../../components/Input/types"
+import { AlertSliceState } from "../../store/redux/AlertSlice/types"
 
 function Account() {
   const dispatch = useAppDispatch()
@@ -26,7 +26,7 @@ function Account() {
   const [isSendButtonDisabled, setSendButtonDisabled] = useState(true)
   const [isEditButtonDisabled, setEditButtonDisabled] = useState(false)
 
-const user = useAppSelector(signInSelectors.user)
+  const user = useAppSelector(signInSelectors.user)
 
   let userInitialData: UserUpdateRequest = {
     userId: user.id,

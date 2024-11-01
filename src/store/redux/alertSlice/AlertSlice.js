@@ -1,4 +1,4 @@
-import { createAppSlice } from "store/createAppSlice";
+import { createAppSlice } from "../../createAppSlice";
 const alertInitialState = {
     isOpen: false,
     children: undefined,

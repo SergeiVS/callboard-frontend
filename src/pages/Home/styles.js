@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors } from "styles/colors";
+import { colors } from "../../styles/colors";
 export const PageWrapper = styled.div `
   display: flex;
   height: 460px;
@@ -33,5 +33,5 @@ export const Picture = styled.img `
   width: 100%;
 `;
 export const ButtonContainer = styled.div `
- width: 100px;
+  width: 100px;
 `;

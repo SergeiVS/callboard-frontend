@@ -1,6 +1,6 @@
-import { PageWrapper } from "./styles"
+import CreatePostForm from "../../components/CreatePostForm/CreatePostForm"
 
-import CreatePostForm from "components/CreatePostForm/CreatePostForm"
+import { PageWrapper } from "./styles"
 
 function CreatePost() {
   return (

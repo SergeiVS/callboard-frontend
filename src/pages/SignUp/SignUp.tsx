@@ -1,6 +1,6 @@
-import { PageWrapper } from "./styles"
+import SignUpForm from "../../components/SingUpForm/SignUpForm"
 
-import SignUpForm from "components/SingUpForm/SignUpForm"
+import { PageWrapper } from "./styles"
 
 function SignUp() {
   return (

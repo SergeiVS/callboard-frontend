@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-import { colors } from "styles/colors"
+import { colors } from "../../styles/colors"
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const PageWrapper = styled.div`
   gap: 100px;
 `
 
-export const AboutUs = styled.div `
+export const AboutUs = styled.div`
   display: flex;
   flex-direction: column;
   height: 500px;
@@ -36,10 +36,10 @@ export const PictureControl = styled.div`
   padding-top: 30px;
 `
 
-export const Picture = styled.img `
+export const Picture = styled.img`
   width: 100%;
 `
 
 export const ButtonContainer = styled.div`
- width: 100px;
+  width: 100px;
 `

@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom"
-
 import { useEffect, useState } from "react"
+import CloseIcon from "@mui/icons-material/Close"
+import { IconButton } from "@mui/material"
+
+import Button from "../Button/Button"
 
 import {
   StyledModal,
@@ -18,24 +21,21 @@ import {
   Icon,
   Footer,
 } from "./styles"
-
-import Button from "components/Button/Button"
-
-import myaccount from "assets/myaccount.png"
-import myposts from "assets/myposts.png"
-import newpost from "assets/createpost.png"
-
 import { LayoutProps, PagesPaths } from "./types"
-import logo from "assets/logo.png"
-
-import CloseIcon from "@mui/icons-material/Close"
-import { alertSelectors, alertActions } from "store/redux/AlertSlice/AlertSlice"
+import {
+  alertSelectors,
+  alertActions,
+} from "../../store/redux/AlertSlice/AlertSlice"
 import {
   signInActions,
   signInSelectors,
-} from "store/redux/SignInFormSlice/SignInFormSlice"
-import { useAppDispatch, useAppSelector } from "store/hooks"
-import { IconButton } from "@mui/material"
+} from "../../store/redux/SignInFormSlice/SignInFormSlice"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
+
+import myaccount from "../../assets/myaccount.png"
+import myposts from "../../assets/myposts.png"
+import newpost from "../../assets/createpost.png"
+import logo from "../../assets/logo.png"
 
 function Layout({ children }: LayoutProps) {
   const navigate = useNavigate()
@@ -46,7 +46,6 @@ function Layout({ children }: LayoutProps) {
   const isModalOpen = useAppSelector(alertSelectors.isOpen)
   const severity = useAppSelector(alertSelectors.severity)
   const message = useAppSelector(alertSelectors.cildren)
-
 
   useEffect(() => {
     if (isModalOpen) {

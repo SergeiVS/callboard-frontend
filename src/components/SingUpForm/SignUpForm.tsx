@@ -1,16 +1,16 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { useNavigate } from "react-router-dom"
-
-import Input from "components/Input/input"
-import Button from "components/Button/Button"
-
-import { alertActions } from "store/redux/AlertSlice/AlertSlice"
-import { PagesPaths } from "components/Layout/types"
-import { StyledSignUpForm, StyledLable, ButtonContainer } from "./styles"
 import axios from "axios"
-import { InputTypes } from "components/Input/types"
-import { useAppDispatch } from "store/hooks"
+
+import Input from "../Input/input"
+import Button from "../Button/Button"
+
+import { alertActions } from "../../store/redux/AlertSlice/AlertSlice"
+import { PagesPaths } from "../Layout/types"
+import { StyledSignUpForm, StyledLable, ButtonContainer } from "./styles"
+import { InputTypes } from "../Input/types"
+import { useAppDispatch } from "../../store/hooks"
 
 function SignUpForm() {
   const navigate = useNavigate()
@@ -47,23 +47,26 @@ function SignUpForm() {
           password: values.password,
         })
 
-        dispatch(alertActions.setAlertStateOpen({
-          isOpen: true,
-          severity: "success",
-          children: response.data.message,
-        }))
-       
+        dispatch(
+          alertActions.setAlertStateOpen({
+            isOpen: true,
+            severity: "success",
+            children: response.data.message,
+          }),
+        )
+
         helpers.resetForm()
         navigate(PagesPaths.SIGNIN)
-        
       } catch (e: any) {
         const error = e.response.data
 
-        dispatch(alertActions.setAlertStateOpen({
-          isOpen: true,
-          severity: "error",
-          children: error.errorMessage,
-        }))
+        dispatch(
+          alertActions.setAlertStateOpen({
+            isOpen: true,
+            severity: "error",
+            children: error.errorMessage,
+          }),
+        )
       }
     },
   })

@@ -1,7 +1,7 @@
 import { FormLabel } from "@mui/material";
 import styled from "@emotion/styled";
-import { colors } from "styles/colors";
-import { FormsCss } from "styles/CommonCss";
+import { colors } from "../../styles/colors";
+import { FormsCss } from "../../styles/CommonCss";
 export const StyledPostCard = styled.form `
   ${FormsCss}
 `;
@@ -14,6 +14,6 @@ export const ButtonWraper = styled.div `
   width: 100px;
 `;
 export const DescriptionWrapper = styled.div `
-width: 100%;
-height: 250px;
+  width: 100%;
+  height: 250px;
 `;

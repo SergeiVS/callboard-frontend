@@ -1,4 +1,4 @@
-import { createAppSlice } from "store/createAppSlice"
+import { createAppSlice } from "../../createAppSlice"
 
 import { AlertSliceState } from "./types"
 import { PayloadAction } from "@reduxjs/toolkit"

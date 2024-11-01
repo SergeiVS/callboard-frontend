@@ -2,14 +2,14 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import Input from "components/Input/input";
-import Button from "components/Button/Button";
-import { alertActions } from "store/redux/AlertSlice/AlertSlice";
-import { PagesPaths } from "components/Layout/types";
-import { StyledSignUpForm, StyledLable, ButtonContainer } from "./styles";
 import axios from "axios";
-import { InputTypes } from "components/Input/types";
-import { useAppDispatch } from "store/hooks";
+import Input from "../Input/input";
+import Button from "../Button/Button";
+import { alertActions } from "../../store/redux/AlertSlice/AlertSlice";
+import { PagesPaths } from "../Layout/types";
+import { StyledSignUpForm, StyledLable, ButtonContainer } from "./styles";
+import { InputTypes } from "../Input/types";
+import { useAppDispatch } from "../../store/hooks";
 function SignUpForm() {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();

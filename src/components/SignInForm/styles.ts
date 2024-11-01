@@ -1,7 +1,8 @@
 import { FormLabel } from "@mui/material"
 import styled from "@emotion/styled"
-import { colors } from "styles/colors"
-import { FormsCss } from "styles/CommonCss"
+
+import { colors } from "../../styles/colors"
+import { FormsCss } from "../../styles/CommonCss"
 
 export const StyledForm = styled.form`
   ${FormsCss}

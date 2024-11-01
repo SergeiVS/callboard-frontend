@@ -1,7 +1,7 @@
 export interface SignInFormProps {
     onSubmit: () => void;
 }
-export interface userUpdateRequest {
+export interface UserUpdateRequest {
     userId: number;
     firstName: string;
     lastName: string;

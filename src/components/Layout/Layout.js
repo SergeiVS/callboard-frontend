@@ -1,18 +1,18 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { StyledModal, StyledAlert, LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, ButtonControl, Main, IconControl, Icon, Footer, } from "./styles";
-import Button from "components/Button/Button";
-import myaccount from "assets/myaccount.png";
-import myposts from "assets/myposts.png";
-import newpost from "assets/createpost.png";
-import { PagesPaths } from "./types";
-import logo from "assets/logo.png";
 import CloseIcon from "@mui/icons-material/Close";
-import { alertSelectors, alertActions } from "store/redux/AlertSlice/AlertSlice";
-import { signInActions, signInSelectors, } from "store/redux/SignInFormSlice/SignInFormSlice";
-import { useAppDispatch, useAppSelector } from "store/hooks";
 import { IconButton } from "@mui/material";
+import Button from "../Button/Button";
+import { StyledModal, StyledAlert, LayoutWrapper, Header, LogoDiv, LogoName, LogoImg, NavigationContainer, Link, ButtonControl, Main, IconControl, Icon, Footer, } from "./styles";
+import { PagesPaths } from "./types";
+import { alertSelectors, alertActions, } from "../../store/redux/AlertSlice/AlertSlice";
+import { signInActions, signInSelectors, } from "../../store/redux/SignInFormSlice/SignInFormSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import myaccount from "../../assets/myaccount.png";
+import myposts from "../../assets/myposts.png";
+import newpost from "../../assets/createpost.png";
+import logo from "../../assets/logo.png";
 function Layout({ children }) {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -21,9 +21,6 @@ function Layout({ children }) {
     const isModalOpen = useAppSelector(alertSelectors.isOpen);
     const severity = useAppSelector(alertSelectors.severity);
     const message = useAppSelector(alertSelectors.cildren);
-    useEffect(() => {
-        dispatch(signInActions.getUser());
-    }, [isLoggedOn]);
     useEffect(() => {
         if (isModalOpen) {
             setModalOpen(true);

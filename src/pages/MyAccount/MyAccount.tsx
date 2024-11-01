@@ -1,5 +1,6 @@
+import Account from "../../components/Account/Account"
+
 import { PageWrapper } from "./styles"
-import Account from "components/Account/Account"
 
 function MyAccount() {
   return (

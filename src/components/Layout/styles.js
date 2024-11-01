@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 import { Alert, Modal } from "@mui/material";
-import { colors } from "styles/colors";
+import { colors } from "../../styles/colors";
 export const StyledModal = styled(Modal) `
   position: absolute;
   top: 50%;
