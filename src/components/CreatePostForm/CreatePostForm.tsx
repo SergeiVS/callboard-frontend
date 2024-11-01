@@ -8,12 +8,7 @@ import Input from "components/Input/input"
 import Button from "components/Button/Button"
 
 import RadioButton from "components/RadioButton/RadioButton"
-<<<<<<< HEAD
 import RadioGroupComp from "../RadioGroupComp/RadioGroupComp"
-=======
-import RadioGroupComp from "../Radiogroup/RadioGroupComp"
-
->>>>>>> d7f8f5b7543003277ed81fd78e1e7653dae9b37b
 import { useAppDispatch, useAppSelector } from "store/hooks"
 import { signInSelectors } from "store/redux/SignInFormSlice/SignInFormSlice"
 import { alertActions } from "store/redux/AlertSlice/AlertSlice"
